@@ -210,11 +210,11 @@ inventory-only paid path. Normal right-click, vendor/trade, empty and partial
 Tome, save/reload, and host/joiner checks remain open for broader gameplay
 qualification.
 
-The packaged `Community-Pack-1.0.0-Windows-x64.zip` contains exactly eight
-files: the five DLLs, central JSON, MIT license, and third-party notices. Every
-file extracted from the archive matches its staged/source SHA-256. The archive
-SHA-256 is
-`0B96536F5F4B3154148B6410BC87B1A680F56B0EE8C3D43353CB48A05C732D57`.
+The packaged `Community-Pack-1.0.0-Windows-x64.zip` contains exactly nine
+files: the five DLLs, central JSON, player README, MIT license, and third-party
+notices. Every file extracted from the archive matches its staged/source
+SHA-256. The archive SHA-256 is
+`EA063516BF5F2A33C9F2A1A34D370713D5AC981BC3BE55E96A36B18A41FD77E3`.
 
 ## Review and attribution
 
