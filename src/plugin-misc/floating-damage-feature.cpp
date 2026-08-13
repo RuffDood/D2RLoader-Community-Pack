@@ -381,8 +381,6 @@ void ApplySetting(std::string_view rawKey, std::string_view value, FloatingDamag
     else if (key == "cold") ParseColor(value, config.coldColor);
     else if (key == "poison") ParseColor(value, config.poisonColor);
     else if (key == "magic") ParseColor(value, config.magicColor);
-    else if (key == "outline") ParseColor(value, config.outlineColor);
-    else if (key == "shadow") ParseColor(value, config.shadowColor);
 }
 
 void ParseConfig(std::string_view text) {
@@ -568,9 +566,9 @@ bool LoadConfig(const nlohmann::json& miscConfig) {
             target = ImVec4(
                 components[0], components[1], components[2], components[3]);
         };
-        constexpr std::array<std::string_view, 10> KnownColors{
+        constexpr std::array<std::string_view, 8> KnownColors{
             "normal", "critical", "physical", "fire", "lightning",
-            "cold", "poison", "magic", "outline", "shadow",
+            "cold", "poison", "magic",
         };
         for (const auto& [key, value] : colors->items()) {
             (void)value;
@@ -587,8 +585,6 @@ bool LoadConfig(const nlohmann::json& miscConfig) {
         readColor("cold", parsed.coldColor);
         readColor("poison", parsed.poisonColor);
         readColor("magic", parsed.magicColor);
-        readColor("outline", parsed.outlineColor);
-        readColor("shadow", parsed.shadowColor);
     }
 
     parsed.fontIndex = std::clamp(

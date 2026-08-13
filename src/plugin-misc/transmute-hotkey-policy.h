@@ -26,8 +26,8 @@ struct Hotkey {
 
 struct Config {
     bool enabled{};
-    Hotkey hotkey{'T', InputDevice::Keyboard, true, true, false};
-    std::string hotkeyText{"CTRL+SHIFT+T"};
+    Hotkey hotkey{'T', InputDevice::Keyboard, false, true, false};
+    std::string hotkeyText{"SHIFT+T"};
 };
 
 inline std::string UpperTrim(std::string_view value) {
@@ -58,7 +58,9 @@ inline bool ParseMainKey(
         unsigned value{};
         for (std::size_t index = 1; index < token.size(); ++index) {
             if (token[index] < '0' || token[index] > '9') return false;
-            value = value * 10 + static_cast<unsigned>(token[index] - '0');
+            const auto digit = static_cast<unsigned>(token[index] - '0');
+            if (value > (24U - digit) / 10U) return false;
+            value = value * 10 + digit;
         }
         if (value >= 1 && value <= 24) {
             virtualKey = 0x70U + value - 1U;
@@ -185,7 +187,7 @@ inline Config ParseConfig(const nlohmann::json& miscConfig) {
         throw std::invalid_argument("misc.transmuteHotkey.hotkey must be a string");
     }
     parsed.enabled = entry->value("enabled", false);
-    parsed.hotkeyText = entry->value("hotkey", std::string("CTRL+SHIFT+T"));
+    parsed.hotkeyText = entry->value("hotkey", std::string("SHIFT+T"));
     if (!ParseHotkey(parsed.hotkeyText, parsed.hotkey)) {
         throw std::invalid_argument(
             "misc.transmuteHotkey.hotkey is invalid or unsupported");

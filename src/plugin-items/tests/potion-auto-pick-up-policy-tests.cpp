@@ -2,6 +2,7 @@
 
 #include "../../../tests/test-check.h"
 
+#include <fstream>
 #include <stdexcept>
 
 namespace {
@@ -18,7 +19,7 @@ bool Throws(Callback&& callback) {
 
 } // namespace
 
-int main() {
+int main(int argc, char** argv) {
     using namespace RuffnecKk::PotionAutoPickUp;
 
     const auto missing = ParseConfig(nlohmann::json::object());
@@ -33,15 +34,14 @@ int main() {
         "potionAutoPickUp": {
             "enabled": false,
             "pickupDistance": 4,
-            "minimumIntervalActions": 3,
             "familyPriority": [],
-            "healing": {"enabled": false, "tiers": [], "columns": [], "overflowToInventory": false, "overflowTiers": [], "tierPriority": []},
-            "mana": {"enabled": false, "tiers": [], "columns": [], "overflowToInventory": false, "overflowTiers": [], "tierPriority": []},
-            "rejuvenation": {"enabled": false, "tiers": [], "columns": [], "overflowToInventory": false, "overflowTiers": [], "tierPriority": []},
-            "diagnostics": {"enabled": false, "logScans": false}
+            "healing": {"enabled": false, "tiers": [], "columns": [], "overflowTiers": [], "tierPriority": []},
+            "mana": {"enabled": false, "tiers": [], "columns": [], "overflowTiers": [], "tierPriority": []},
+            "rejuvenation": {"enabled": false, "tiers": [], "columns": [], "overflowTiers": [], "tierPriority": []}
         }
     })json"));
     TEST_REQUIRE(!skeleton.enabled);
+    TEST_REQUIRE(skeleton.interval == 3);
     TEST_REQUIRE(!skeleton.healing.policy.Accepts(Classify("hp5")));
     TEST_REQUIRE(!skeleton.mana.policy.Accepts(Classify("mp5")));
     TEST_REQUIRE(!skeleton.rejuvenation.policy.Accepts(Classify("rvl")));
@@ -98,5 +98,21 @@ int main() {
         R"json({"potionAutoPickUp":{"healing":{"tiers":["mp5"]}}})json")); }));
     TEST_REQUIRE(Throws([] { ParseConfig(nlohmann::json::parse(
         R"json({"potionAutoPickUp":{"healing":{"columns":[1,1]}}})json")); }));
+
+    TEST_REQUIRE(argc == 2);
+    std::ifstream shippedConfig(argv[1]);
+    TEST_REQUIRE(shippedConfig.good());
+    const auto root = nlohmann::json::parse(shippedConfig, nullptr, true, true);
+    const auto& shippedFeature = root.at("items").at("potionAutoPickUp");
+    TEST_REQUIRE(!shippedFeature.contains("minimumIntervalActions"));
+    TEST_REQUIRE(!shippedFeature.contains("diagnostics"));
+    TEST_REQUIRE(!shippedFeature.at("healing").contains("overflowToInventory"));
+    TEST_REQUIRE(!shippedFeature.at("mana").contains("overflowToInventory"));
+    TEST_REQUIRE(!shippedFeature.at("rejuvenation").contains("overflowToInventory"));
+    const auto shipped = ParseConfig(root.at("items"));
+    TEST_REQUIRE(!shipped.enabled);
+    TEST_REQUIRE(shipped.interval == 3);
+    TEST_REQUIRE(shipped.healing.policy.columnCount == 0);
+    TEST_REQUIRE(!shipped.healing.policy.Accepts(Classify("hp5")));
     return 0;
 }

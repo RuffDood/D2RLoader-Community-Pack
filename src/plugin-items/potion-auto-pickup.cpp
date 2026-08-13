@@ -380,14 +380,6 @@ void ScanUnsafe(void* player) {
         Metrics.pickupSuccesses.fetch_add(1,std::memory_order_relaxed);
         Metrics.pickedByCode[bestIndex].fetch_add(1,std::memory_order_relaxed);
     } else Metrics.pickupFailures.fetch_add(1,std::memory_order_relaxed);
-    if(Settings.diagnostics && Settings.logScans && Context) {
-        std::string message="PotionAutoPickup route code=";
-        message.append(bestPotion->code).append(" guid=").append(std::to_string(bestGuid));
-        if(bestOverflow) message.append(" destination=inventory");
-        else message.append(" destination=belt slot=").append(std::to_string(bestBeltSlot));
-        message.append(picked ? " result=success" : " result=failed");
-        Context->LogInfo(message.c_str());
-    }
     ResetRoutingScope();
 }
 

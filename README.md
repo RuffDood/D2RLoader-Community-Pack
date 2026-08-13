@@ -1,27 +1,29 @@
-# Community Pack 1.0.0
+# D2RLoader Community Pack 1.0.0
 
-Community Pack 1.0.0 brings community additions into eezstreet's original
-PluginPack while keeping its established five-DLL layout and one central
-configuration file. It is intended for players and mod authors who want the
-pack's fixes, quality-of-life options, and configurable gameplay extensions
-without managing a collection of overlapping standalone plugins.
+Community Pack 1.0.0 combines eezstreet's original PluginPack with 22
+RuffnecKk features inside the same five-DLL layout and one central
+`D2RPlugins.json` file.
+
+The plan is to maintain and update this ever-expanding community driven plugin pack!
 
 ## Download
 
-For the ready-to-install package, open
-[Releases](https://github.com/RuffDood/D2RLoader-Community-Pack/releases/latest)
+Open the [latest release](https://github.com/RuffDood/D2RLoader-Community-Pack/releases/latest)
 and download `Community-Pack-1.0.0-Windows-x64.zip`.
 
-GitHub's **Code → Download ZIP** option is a source-code snapshot. It does not
-contain compiled DLLs and is not the installable package. The release asset
-contains the five DLLs and `D2RPlugins.json` in their correct `d2rloader`
-folders.
+GitHub's **Code -> Download ZIP** option contains source code only. It does not
+contain the compiled DLLs or the ready-to-use configuration. Use the ZIP listed
+under **Releases** to download installable files.
 
-This release requires **D2RLoader 1.0.1 or later** and supports
-**Diablo II: Resurrected 3.2.92777**. It refuses unsupported game builds rather
-than installing unverified native hooks.
+Community Pack 1.0.0 requires:
 
-The package contains exactly these runtime plugins:
+- **D2RLoader 1.0.1 or later**;
+- **Diablo II: Resurrected 3.2.92777**.
+
+Unsupported game builds are refused instead of receiving unverified native
+changes.
+
+The installable package contains these five plugins:
 
 - `plugin-items.dll`
 - `plugin-levels.dll`
@@ -29,16 +31,16 @@ The package contains exactly these runtime plugins:
 - `plugin-quests.dll`
 - `plugin-skills.dll`
 
-`plugin-shared` is linked into the five DLLs and is not a sixth runtime plugin.
 
 ## Installation
 
-Choose one installation scope. The packaged `d2rloader` directory can be copied
-directly into the corresponding destination.
+Choose either a global installation or a mod-local installation. Install the
+pack in one scope only.
 
-### Global
+### Global installation
 
-Copy `d2rloader` into the Diablo II: Resurrected installation directory:
+Copy the packaged `d2rloader` directory into the Diablo II: Resurrected
+installation directory. The result should look like this:
 
 ```text
 <D2R>/d2rloader/plugins/plugin-items.dll
@@ -49,9 +51,9 @@ Copy `d2rloader` into the Diablo II: Resurrected installation directory:
 <D2R>/d2rloader/config/D2RPlugins.json
 ```
 
-### Mod-local
+### Mod-local installation
 
-Copy `d2rloader` into the selected mod directory:
+Copy the packaged `d2rloader` directory into the selected mod directory:
 
 ```text
 <D2R>/mods/<mod>/d2rloader/plugins/plugin-items.dll
@@ -63,202 +65,334 @@ Copy `d2rloader` into the selected mod directory:
 ```
 
 When both configuration files exist, the mod-local file takes priority over
-the global file. Restart D2RLoader after changing the configuration.
+the global file. Restart D2RLoader after replacing a DLL or changing the
+configuration.
 
-## Features by DLL
+The original PluginPack expected its JSON inside a mod's MPQ/data structure.
+Community Pack does not. Install `D2RPlugins.json` in the `d2rloader/config`
+directory shown above.
+
+## Before updating from standalone plugins
+
+Remove every standalone DLL or memory patch that implements one of the 22
+integrated features before starting the game. Loading an old standalone version
+beside its Community Pack owner can make both components target the same game
+behavior.
+
+This includes previous releases such as Bulk Skill Point Allocation,
+AdvancedItemTooltips, RemoteStash, MassID, Durability Resistance,
+NoEtherealItemTypes/Ethereal Item Rules, FloatingDamage, Enhanced Damage
+Min/Max Fix, Charm Aura Trigger Fix
+
+There is no automatic TOML-to-JSON migration. Re-enter the desired values in
+the matching block of the central `D2RPlugins.json` file.
+## Shipped defaults
+
+No-brainer features are enabled within the provided json config :
+
+- Charm Aura Trigger Fix;
+- Enhanced Damage Min/Max Fix;
+- Qty Display Fix;
+- Equipped Item to Cube;
+
+Every other
+configurable RuffnecKk integration ships disabled or in its vanilla-preserving
+mode.
+## The 22 integrated RuffnecKk features
 
 ### `plugin-items.dll`
 
-- Item identification, Magic Find formulas, durability, repair-cost and gold
-  rules, expanded runeword qualities, gambling controls, vendor controls,
-  resistance and absorb caps, ethereal-item rules, and related item fixes.
-- Charm Aura Trigger Fix, Enhanced Damage Min/Max Fix, Qty Display Fix, Ground
-  Item Label Limit, Gamble Screen Limit, Vendor Stock Refresh, and Extended
-  Item Stats with complete scrollable stat lists.
-- **AdvancedTooltips** under `items.advancedTooltips`.
-- **PotionAutoPickUp** under `items.potionAutoPickUp`.
+#### 1. Gamble Screen Limit
 
-### `plugin-levels.dll`
+Fills all 32 gambling slots instead of the vanilla 14.
 
-- `levels.disableAct1Path` removes the dirt-path overlay covering the Blood
-  Moor.
+- **JSON:** `items.gambleScreenLimit`
+- **Shipped default:** disabled
+- **Options:** `enabled`
+
+#### 2. Ground Item Label Limit
+
+Raises the number of ground-item labels that can be displayed at once from 32
+to either 64 or 128.
+
+- **JSON:** `items.groundItemLabels`
+- **Shipped default:** disabled; preset limit `64`
+- **Options:** `enabled`, `limit`
+
+#### 3. Item Durability
+
+Configures durability-loss resistance for normal and ethereal items, ethereal
+maximum durability, and optional durability for bows and crossbows.
+
+- **JSON:** `items.itemDurability`
+- **Shipped default:** disabled, preserving vanilla durability behavior
+- **Options:** `enabled`, `normalResistancePercent`, `etherealResistancePercent`,
+  `etherealMaximumPercent`, `forceMaximumDurability`, and
+  `bowsAndCrossbowsHaveDurability`
+- **Preset values:** normal and ethereal resistance `0`, ethereal maximum `50`,
+  and both boolean overrides disabled
+- **Allowed ranges:** resistance percentages `0` to `100`; ethereal maximum
+  percentage `1` to `200`
+- **Useful note:** `forceMaximumDurability` gives affected ethereal items 255
+  maximum durability instead of using `etherealMaximumPercent`.
+
+#### 4. Charm Aura Trigger Fix
+
+Restores inventory-charm auras after changing areas, recovering a corpse, or
+respawning in town.
+
+- **JSON:** `items.charmAuraTriggerFix`
+- **Shipped default:** enabled
+- **Options:** `enabled`
+
+#### 5. Enhanced Damage Min/Max Fix
+
+Corrects off-weapon Enhanced Damage when flat minimum or maximum damage is also
+present.
+
+- **JSON:** `items.enhancedDamageMinMaxFix`
+- **Shipped default:** enabled
+- **Options:** `enabled`
+
+#### 6. Magic Find Formula
+
+Offers exactly two case-sensitive calculation modes:
+
+- `vanilla` uses regular D2R Magic Find behavior, including diminishing returns
+  for Unique, Set, and Rare quality rolls;
+- `linear` applies positive Magic Find directly to Unique, Set, and Rare rolls
+  without those diminishing returns.
+
+Magic-quality rolls and non-positive Magic Find keep their regular behavior in
+both modes.
+
+- **JSON:** `items.magicFindFormula.mode`
+- **Shipped default:** `vanilla`
+- **Allowed values:** `vanilla`, `linear`
+
+#### 7. Ethereal Item Rules
+
+Combines the former Ethereal Item Rules and NoEtherealItemTypes work into one
+feature. It controls the ethereal generation chance, excluded item types, and
+whether Set or indestructible items may become ethereal.
+
+- **JSON:** `items.etherealItemRules`
+- **Shipped default:** disabled, preserving vanilla behavior
+- **Preset values:** `chancePercent: 5`, empty `excludedItemTypes`,
+  `allowSetItems: false`, and `allowIndestructibleItems: false`
+- **Options:** `enabled`, `excludedItemTypes`, `chancePercent`,
+  `allowSetItems`, and `allowIndestructibleItems`
+- **Allowed range:** `chancePercent` accepts `0` to `100`
+- **Useful note:** excluded values use item-type codes; excluding a parent type
+  also covers its descendants.
+
+#### 8. Extended Item Stats
+
+Shows complete item-stat information in bounded, scrollable tooltips with a
+visible scrollbar.
+
+- **JSON:** none
+- **Shipped default:** always active (doesn't show up in the config file)
+- **Useful note:** it coexists with AdvancedTooltips;
+#### 9. Repair Costs Cap
+
+Caps repair prices and can optionally make repaired items permanently lose
+maximum durability.
+
+- **JSON:** `items.repairCostsCap`
+- **Shipped default:** disabled; preset cap `2147483647`
+- **Options:** `enabled`, `maximumGold`, and the
+  `durabilityWear.enabled`/`durabilityWear.chance` settings
+- **Useful note:** durability wear also ships disabled with a `0.0` chance.
+
+#### 10. Qty Display Fix
+
+Shows quantity on socketed stackable items (throwables/quiver/bolts)
+
+- **JSON:** `items.qtyDisplayIssue`
+- **Shipped default:** enabled
+- **Options:** `enabled`
+
+#### 11. Vendor Stock Refresh
+
+Adds a manual refresh button for normal vendor stock.
+
+- **JSON:** `items.vendorStockRefresh`
+- **Shipped default:** disabled
+- **Options:** `enabled`
+
+#### 12. AdvancedTooltips
+
+Adds exact item information such as maximum sockets, base-defense ranges, and
+intrinsic property-roll ranges.
+
+- **JSON:** `items.advancedTooltips`
+- **Shipped default:** disabled; display mode `HoldHotkey`; hotkey `Shift`
+- **Options:** `enabled`, `showMaxSockets`, `showMaxSocketsOnSocketedItems`,
+  `showBaseDefenseRange`, `showPropertyRanges`,
+  `includeSocketedContributionsInRanges`, `propertyRangeColor`,
+  `rangeDisplayMode`, and `holdToDisplayHotkey`
+- **Preset details:** maximum sockets, base-defense ranges, and property ranges
+  are selected; socketed-item socket counts and socketed contributions are not;
+  the preset color is `ChronicleColor` (teal/light blue). The only other public
+  color value is `BHDarkGreen`, the legacy BH dark green.
+- **Useful note:** with `HoldHotkey`, the configured details appear only while
+  the key is held. `Always` keeps them visible continuously. These mode and
+  color names are case-sensitive.
+
+#### 13. PotionAutoPickUp
+
+Automatically routes explicitly selected healing, mana, and rejuvenation
+potions from the ground into allowed belt columns or, when that potion tier is
+listed in `overflowTiers`, into the character inventory.
+
+- **JSON:** `items.potionAutoPickUp`
+- **Shipped default:** completely inactive
+- **Main options:** `enabled`, `pickupDistance`, `familyPriority`, and separate
+  `healing`, `mana`, and `rejuvenation` rules
+- **Per-family options:** `enabled`, `tiers`, `columns`,
+  `overflowTiers`, and `tierPriority`
+- **Useful note:** `pickupDistance` accepts `1` to `4` in D2R's native
+  collision/unit grid; it is not a screen-pixel or large-map-tile count.
+  `columns` means belt columns `1` (leftmost) through `4` (rightmost).
+  `familyPriority` orders potion families, while `tierPriority` orders selected
+  potion codes inside one family. The JSON contains valid examples.
+- **Safe default:** all supplied family and tier lists are empty. Installing
+  the pack cannot pick up a potion automatically until the player explicitly
+  configures one. If no allowed belt or inventory destination has space, the
+  potion remains on the ground.
+
+#### 14. MassID
+
+Identifies eligible items by holding Shift and right-clicking a Tome of
+Identify. Already identified items are skipped.
+
+- **JSON:** `items.massIdentify`
+- **Shipped default:** enabled; normal Tome consumption; character inventory
+  only
+- **Options:** `enabled`, `freeIdentification`, `includeCube`,
+  `includePersonalStash`, and `includeSharedStash`
+- **Default values:** `freeIdentification: false` and all three `include...`
+  options set to `false`; character inventory is always included
+- **Useful note:** with `freeIdentification: false`, one Tome charge is consumed
+  for every newly identified item and processing stops when no charge remains.
+  With `freeIdentification: true`, eligible items are identified without
+  consuming charges. Optional containers are processed after character
+  inventory in this order: Cube, personal stash, then shared stash.
 
 ### `plugin-misc.dll`
 
-- Configurable `/players` limit and independent monster HP/experience scaling
-  caps.
-- Cube Quick Move Bottom-Right, Equipped Item to Cube, Transmute Hotkey, and
-  Prevent Merc Death in Town.
-- **RemoteStash** under `misc.remoteStash`.
-- **FloatingDamage** under `misc.floatingDamage`.
+#### 15. Cube Quick Move Bottom-Right
+
+Places items quick-moved into the Horadric Cube into free slots beginning at
+the bottom-right.
+
+- **JSON:** `misc.cubeQuickMoveBottomRight`
+- **Shipped default:** disabled
+- **Options:** `enabled`
+
+#### 16. Equipped Item to Cube
+
+Moves equipped gear directly into an open Horadric Cube with Ctrl-left-click
+when a valid Cube slot is available.
+
+- **JSON:** `misc.equippedItemToCube`
+- **Shipped default:** enabled
+- **Options:** `enabled`
+
+#### 17. Assign Transmute Hotkey
+
+Activates the Horadric Cube's Transmute button from a configurable keyboard or
+mouse shortcut.
+
+- **JSON:** `misc.transmuteHotkey`
+- **Shipped default:** disabled; preset shortcut `SHIFT+T`
+- **Options:** `enabled`, `hotkey`
+- **Useful note:** the shortcut accepts A-Z, 0-9, F1-F24, common navigation
+  keys, MOUSE3-MOUSE5, and optional Ctrl, Shift, or Alt modifiers. Key names
+  are case-insensitive, but the configured modifier combination must match
+  exactly. Input refused by an active chat or modal is returned to the game.
+
+#### 18. Prevent Merc Death in Town
+
+Prevents ongoing damage from killing the player's mercenary while the mercenary
+is in town.
+
+- **JSON:** `misc.preventMercDeathInTown`
+- **Shipped default:** disabled
+- **Options:** `enabled`
+
+#### 19. RemoteStash
+
+Opens and closes the normal personal and shared tabs including outside town. The game remains responsible for the real stash tabs,
+items, and persistence.
+
+- **JSON:** `misc.remoteStash`
+- **Shipped default:** optional hotkey disabled; hotkey `None`
+- **Options:** `enabled`, `hotkey`
+- **Useful note:** `None` leaves the optional keyboard shortcut unbound. A mod
+  may still expose a compatible inventory-layout button because `enabled`
+  controls only the optional hotkey input. The same configured shortcut toggles
+  the stash; Escape and the normal close control still work. RemoteStash accepts
+  the same keys and modifiers as the Transmute shortcut, plus `Semicolon`;
+  names are case-insensitive and modifiers must match exactly.
+
+#### 20. FloatingDamage
+
+Displays visual damage numbers dealt above monsters
+- **JSON:** `misc.floatingDamage`
+- **Shipped default:** disabled; toggle shortcut `SHIFT+Z`
+- **Main options:** visibility shortcut, number limits, font and sizing,
+  damage-type colors, animation, hit combining, columns/stacks, DPS sampling,
+  preview, and colors
+- **Useful note:** the toggle changes overlay visibility for the current game
+  session. Game-world positioning, text size, outline/shadow, and DPS placement
+  scale automatically with the display. Text uses 2160p as a reference
+  (`1080p = 0.5x`, `1440p = 0.667x`, `2160p = 1x`, with a 720p minimum), so a
+  1080p player does not need to change the config. Drift, spread, popup travel,
+  and stack spacing are raw screen-pixel preferences and may be tuned visually.
 
 ### `plugin-quests.dll`
 
-- Configurable rewards for the Den of Evil, Izual, the Black Book, the Golden
-  Bird, Radament's Skill Book, Akara/Cain, Ormus/Gidbinn, and Qual-Kehk.
-- Configurable Larzuk socket rewards and an option to let Imbue accept socketed
-  items.
+#### 21. Force Larzuk Sockets
+
+Configures how many sockets Larzuk adds for Magic, Rare, Set, Unique, and
+Crafted items in Normal, Nightmare, and Hell.
+
+- **JSON:** `quests.larzukSockets`
+- **Shipped default:** disabled, so Larzuk uses vanilla behavior
+- **Options:** `enabled` plus `minSockets`/`maxSockets` for each supported
+  quality in each difficulty
+- **Useful note:** equal minimum and maximum values force a fixed result; a
+  range rolls between both values. Set one quality rule to `null` to use its
+  vanilla result. The supplied table contains the visible vanilla socket rules
+  but installs no change while disabled.
 
 ### `plugin-skills.dll`
 
-- Skills may spend life or stamina instead of mana through `skills.txt`, use
-  classic Whirlwind timing, allow Whirlwind Chance to Cast, and broaden
-  Telekinesis pickup.
-- Bulk Skill Point Allocation, configurable charged-item drain avoidance, and
-  extended self-heal parameters.
+#### 22. Bulk Skill Point Allocation
 
-## New features
+Spends several skill points with Ctrl-click or all currently usable points with
+Shift-click.
 
-### RemoteStash
-
-RemoteStash opens and closes the player's normal stash remotely, including
-outside town, while the game remains responsible for the real stash tabs,
-inventory operations, and item persistence. The same configured shortcut
-toggles the stash; Escape and the normal close control still work.
-
-- JSON key: `misc.remoteStash`
-- Public default: `enabled: false` and `hotkey: "None"`
-- Main options: `enabled` and `hotkey`
-
-`None` does not capture a key, and `enabled` controls the optional hotkey input.
-A mod may still provide a compatible inventory-layout button. RemoteStash is
-independent of all other features in the pack.
-
-### AdvancedTooltips
-
-AdvancedTooltips adds exact item information such as maximum sockets, base
-defense ranges, and intrinsic property roll ranges. It preserves the existing
-coexistence design with Extended Item Stats, including its long-tooltip
-scrolling path.
-
-- JSON key: `items.advancedTooltips`
-- Public default: `enabled: false` and `rangeDisplayMode: "HoldHotkey"`
-- Hold-to-display default: `Shift`
-- Main options: `showMaxSockets`, `showMaxSocketsOnSocketedItems`,
-  `showBaseDefenseRange`, `showPropertyRanges`,
-  `includeSocketedContributionsInRanges`, `rangeDisplayMode`,
-  `holdToDisplayHotkey`, and `propertyRangeColor`
-
-The pack ships disabled. With the default `HoldHotkey` mode, ranges appear only
-while the configured hold-to-display key is pressed; `Always` remains available
-for players who prefer persistent ranges.
-
-### PotionAutoPickUp
-
-PotionAutoPickUp routes explicitly selected healing, mana, and rejuvenation
-potions from the ground into allowed belt columns or, when configured, into the
-inventory. It uses the game's normal pickup path.
-
-- JSON key: `items.potionAutoPickUp`
-- Public default: `enabled: false`
-- Main options: `pickupDistance`, `minimumIntervalActions`, `familyPriority`,
-  and the `healing`, `mana`, and `rejuvenation` blocks. Each family selects
-  `enabled`, `tiers`, `columns`, `overflowToInventory`, `overflowTiers`, and
-  `tierPriority` independently.
-
-The public JSON intentionally ships as an empty skeleton: no potion family,
-potion code, belt column, overflow rule, or priority list is active. Examples
-in the JSON comments are documentation only. If no configured destination has
-space, the item remains on the ground; it is not deleted or duplicated.
-
-### FloatingDamage
-
-FloatingDamage shows visual damage numbers above monsters, can combine rapid
-hits, animates and expires the text, and can display rolling DPS. It is a visual
-overlay and does not change combat simulation.
-
-- JSON key: `misc.floatingDamage`
-- Public default: `enabled: false`
-- Toggle hotkey default: `Shift+Z`
-- Main options: general limits, toggle hotkey, appearance, animation, hit
-  combining, layout, DPS, preview, and colors
-
-The toggle changes overlay visibility for the current session.
-
-## Configuration
-
-`D2RPlugins.json` is the only public configuration file for the pack. The five
-DLLs resolve it with the same priority:
-
-1. `<D2R>/mods/<mod>/d2rloader/config/D2RPlugins.json`
-2. `<D2R>/d2rloader/config/D2RPlugins.json`
-
-Each DLL logs the file it actually loaded. A present but invalid file is
-reported with an understandable error instead of silently selecting a
-different configuration.
-
-The shipped file contains comments explaining the available values. In
-particular, the PotionAutoPickUp section contains an inactive example and empty
-lists so installing the pack cannot pick up any item automatically by default.
-
-The former public hotkey option `consume` has been removed. When a pack hotkey
-actually performs its action, the triggering input is handled internally so it
-does not also activate an unrelated game action. When the action is not
-applicable, the key retains its normal game behavior. A leftover `consume`
-field in an older JSON is ignored and does not replace this internal policy.
-
-## Migration from standalone plugins
-
-Before starting the game, remove the old standalone copies of the integrated
-features, including `RemoteStash.dll`, `AdvancedItemTooltips.dll`,
-`PotionAutoPickup.dll`, and `FloatingDamage.dll`. Also remove their separate
-configuration files (`RemoteStash.json`, `AdvancedItemTooltips.json`,
-`PotionAutoPickup.toml`, and `floating-damage.toml`) after transferring any
-settings you still want into the matching blocks of `D2RPlugins.json`.
-
-Move an existing central `D2RPlugins.json` from its old location to one of the
-new `d2rloader/config` paths documented above. Do not keep global and mod-local
-copies unless you intentionally want the mod-local configuration to override
-the global one.
-
-## Integration and compatibility notes
-
-- All additions live inside the five existing PluginPack DLLs; no extra runtime
-  DLL or manual load order is required.
-- Each executable write has one manifest owner. Hooks use expected-byte guards,
-  overlap validation, and fail-closed behavior.
-- Shared runtime structures and shared call paths are centralized so features
-  do not need another feature to be enabled.
-- The four additions can be enabled together, but each also works
-  independently.
-- An external plugin that modifies exactly the same native hook or patch span
-  may still conflict. Do not load an old standalone version alongside the
-  integrated owner.
-
-Community Pack 1.0.0 is published with eezstreet's express permission.
-
-The exact source snapshot and included corrective commits are recorded in
-[`SOURCE-PROVENANCE.md`](SOURCE-PROVENANCE.md).
-
-## Building from source
-
-`plugin-items.dll` embeds original Diablo II: Resurrected 3.2 vanilla tables
-for AdvancedTooltips. Those copyrighted game-data files are not distributed in
-this repository. Point CMake to your own extracted `data/global/excel`
-directory when configuring a production build:
-
-```powershell
-cmake -S . -B build -A x64 -DBUILD_TESTING=ON `
-  -DCOMMUNITY_PACK_VANILLA_EXCEL_DIR="C:/path/to/data/global/excel"
-```
-
-The GitHub Actions workflow uses clearly labeled compile-only placeholders so
-it can validate source compilation and tests without publishing game data.
-DLLs produced by that workflow are not release artifacts and must not be
-distributed or used in game.
-
+- **JSON:** `skills.bulkSkillPointAllocation`
+- **Shipped default:** disabled; Ctrl-click amount `5`; Shift confirmation off
+- **Options:** `enabled`, `skillPointsPerCtrlClick`,
+  `confirmShiftAllocation`, `shiftConfirmationKey`, and
+  `shiftConfirmationFallback`
+- **Useful note:** enabling confirmation asks before the Shift-click allocation;
+  the fallback text is used when the configured localization key is unavailable.
 ## Credits and licenses
 
-- **eezstreet** — creator and maintainer of the original PluginPack.
-- **RuffnecKk** — Community Pack integration and the contributed feature work,
-  including RemoteStash, AdvancedTooltips, PotionAutoPickUp, and the D2RLoader
-  3.2 FloatingDamage port.
-- **D2RLAN/D2RHUD** — original FloatingDamage renderer and 2.4 behavioral
+- **eezstreet** - creator and maintainer of the original PluginPack.
+- **RuffnecKk** - Community Pack integration and all 22 contributed features
+  listed above
+- **D2RLAN/D2RHUD** - original FloatingDamage renderer and D2R 2.4 behavioral
   reference used by the port.
-- **D2MOO project** — semantic Diablo II reference used by RemoteStash,
-  PotionAutoPickUp, and FloatingDamage; no D2R 3.2 address or ABI was copied
-  from it.
+- **D2MOO project** - semantic Diablo II reference used by RemoteStash,
+  PotionAutoPickUp, FloatingDamage, and MassID.
 
-The pack is distributed under the included [MIT License](LICENSE). Dear
-ImGui, MinHook, and the bundled OFL fonts retain the notices in
+Community Pack 1.0.0 is published with eezstreet's express permission. The pack
+is distributed under the included [MIT License](LICENSE). Dear ImGui, MinHook,
+and the bundled OFL fonts retain their notices in
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

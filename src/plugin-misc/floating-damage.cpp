@@ -25,6 +25,8 @@ namespace {
 constexpr int kFontPresetCount = D3D12::kFloatingDamageFontCount;
 constexpr float kReferenceDisplayHeight = 2160.0f;
 constexpr float kMinimumSupportedDisplayHeight = 720.0f;
+const ImVec4 kOutlineColor{ 0.16f, 0.11f, 0.03f, 1.0f };
+const ImVec4 kShadowColor{ 0.16f, 0.11f, 0.02f, 1.0f };
 
 constexpr float CalculateResolutionScale(float displayHeight) noexcept
 {
@@ -760,8 +762,8 @@ void DrawStyledText(
         ? std::max(1, static_cast<int>(std::lround(static_cast<float>(g_config.textOutlineWidth) * resolutionScale)))
         : 0;
     const ImU32 mainColor = ToImColor(color, fade);
-    const ImU32 outlineCol = ToImColor(g_config.outlineColor, fade);
-    const ImU32 shadowCol = ToImColor(g_config.shadowColor, fade);
+    const ImU32 outlineCol = ToImColor(kOutlineColor, fade);
+    const ImU32 shadowCol = ToImColor(kShadowColor, fade);
 
     const ImVec2 textSize = font->CalcTextSizeA(fontSize, FLT_MAX, 0.0f, text);
     pos.x -= textSize.x * 0.5f;
@@ -1053,10 +1055,6 @@ static void LoadSettingsFromJsonObject(const nlohmann::json& j)
         g_config.poisonColor = JsonToColor(j["PoisonColor"], g_config.poisonColor);
     if (j.contains("MagicColor"))
         g_config.magicColor = JsonToColor(j["MagicColor"], g_config.magicColor);
-    if (j.contains("OutlineColor"))
-        g_config.outlineColor = JsonToColor(j["OutlineColor"], g_config.outlineColor);
-    if (j.contains("ShadowColor"))
-        g_config.shadowColor = JsonToColor(j["ShadowColor"], g_config.shadowColor);
 }
 
 void LoadFromJson(const nlohmann::json& root)
@@ -1129,8 +1127,6 @@ void SaveToJson(nlohmann::ordered_json& root)
     ColorToJson(j["ColdColor"], g_config.coldColor);
     ColorToJson(j["PoisonColor"], g_config.poisonColor);
     ColorToJson(j["MagicColor"], g_config.magicColor);
-    ColorToJson(j["OutlineColor"], g_config.outlineColor);
-    ColorToJson(j["ShadowColor"], g_config.shadowColor);
 
     root["FloatingDamageSettings"] = j;
 }
@@ -1551,12 +1547,6 @@ void DrawSettingsPanel(float menuScale)
                 settingColor("Magic", &cfg.magicColor.x, "Color for magic damage numbers.");
             }
         }
-        settingColor(
-            "Outline Color", &cfg.outlineColor.x,
-            "Color of the outline stroke drawn around each number.");
-        settingColor(
-            "Shadow Color", &cfg.shadowColor.x,
-            "Color of the drop shadow drawn behind each number.");
     }
 
     const bool animationOpen = drawSectionHeader("Animation");

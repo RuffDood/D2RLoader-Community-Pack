@@ -90,8 +90,6 @@ struct Config {
     ImVec4 coldColor = ImVec4(0.45f, 0.78f, 1.0f, 1.0f);
     ImVec4 poisonColor = ImVec4(0.35f, 0.90f, 0.30f, 1.0f);
     ImVec4 magicColor = ImVec4(0.72f, 0.45f, 1.0f, 1.0f);
-    ImVec4 outlineColor = ImVec4(0.16f, 0.11f, 0.03f, 1.0f);
-    ImVec4 shadowColor = ImVec4(0.16f, 0.11f, 0.02f, 1.0f);
 };
 
 Config& GetConfig();

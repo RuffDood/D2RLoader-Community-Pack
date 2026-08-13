@@ -8,6 +8,7 @@
 #include "item-durability.h"
 #include "items-ethereal.h"
 #include "items-private.h"
+#include "mass-identify.h"
 #include "magic-find-formula.h"
 #include "potion-auto-pickup.h"
 #include "qty-display-issue.h"
@@ -693,6 +694,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderGetPluginInfo() noexcept -> const D2RL::PluginI
 
 static void CleanupPluginItemsState() noexcept
 {
+	RuffnecKk::MassIdentify::Unload();
 	RuffnecKk::PotionAutoPickUp::Unload();
 	RuffnecKk::MagicFindFormula::Unload();
 	RuffnecKk::VendorStockRefresh::Unload();
@@ -789,6 +791,9 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* context) 
 		return false;
 	}
 	if (!RuffnecKk::AdvancedTooltips::Load(context, itemsConfig)) {
+		return false;
+	}
+	if (!RuffnecKk::MassIdentify::Load(context, itemsConfig)) {
 		return false;
 	}
 	if (!RuffnecKk::GambleScreenLimit::Load(context, itemsConfig)) {
@@ -1033,6 +1038,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* context) 
 			"plugin-items: deferred hook commit failed; direct writes were restored and guarded detours were deactivated.");
 		return false;
 	}
+	RuffnecKk::MassIdentify::Activate();
 
 	return true;
 }

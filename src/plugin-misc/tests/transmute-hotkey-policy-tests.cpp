@@ -36,16 +36,19 @@ int main(int argc, char** argv) {
     TEST_REQUIRE(hotkey.virtualKey == 'T' && !hotkey.control && !hotkey.shift && !hotkey.alt);
     TEST_REQUIRE(ParseHotkey("SHIFT+T", hotkey));
     TEST_REQUIRE(hotkey.virtualKey == 'T' && hotkey.shift);
+    TEST_REQUIRE(ParseHotkey("F24", hotkey));
+    TEST_REQUIRE(hotkey.virtualKey == 0x87 && !IsMouseHotkey(hotkey));
     TEST_REQUIRE(!ParseHotkey("CTRL+CTRL+T", hotkey));
     TEST_REQUIRE(!ParseHotkey("T+H", hotkey));
     TEST_REQUIRE(!ParseHotkey("F25", hotkey));
+    TEST_REQUIRE(!ParseHotkey("F4294967297", hotkey));
 
     TEST_REQUIRE(IsFreshRequest(1'100, 1'000, 250));
     TEST_REQUIRE(!IsFreshRequest(1'251, 1'000, 250));
 
     const auto missing = ParseConfig(nlohmann::json::object());
     TEST_REQUIRE(!missing.enabled);
-    TEST_REQUIRE(missing.hotkeyText == "CTRL+SHIFT+T");
+    TEST_REQUIRE(missing.hotkeyText == "SHIFT+T");
     const auto enabled = ParseConfig(nlohmann::json::parse(
         R"json({"transmuteHotkey":{"enabled":true,"hotkey":"MOUSE4"}})json"));
     TEST_REQUIRE(enabled.enabled && IsMouseHotkey(enabled.hotkey));
@@ -63,6 +66,6 @@ int main(int argc, char** argv) {
     const auto root = nlohmann::json::parse(shippedConfig, nullptr, true, true);
     const auto shipped = ParseConfig(root.at("misc"));
     TEST_REQUIRE(!shipped.enabled);
-    TEST_REQUIRE(shipped.hotkeyText == "CTRL+SHIFT+T");
+    TEST_REQUIRE(shipped.hotkeyText == "SHIFT+T");
     return 0;
 }

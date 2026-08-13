@@ -39,6 +39,8 @@ add_library(plugin-items SHARED
 	"${CMAKE_CURRENT_BINARY_DIR}/vanilla_tables.rc"
 )
 
+target_compile_options(plugin-items PRIVATE /utf-8)
+
 target_link_libraries(plugin-items PRIVATE
 	plugin-shared
 	plugin-items-extended-transport
@@ -222,6 +224,17 @@ if(BUILD_TESTING)
 		potion-auto-pick-up-policy-tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 	add_test(
 		NAME potion-auto-pick-up-policy
-		COMMAND potion-auto-pick-up-policy-tests
+		COMMAND potion-auto-pick-up-policy-tests ${CMAKE_SOURCE_DIR}/D2RPlugins.json
+	)
+
+	add_executable(mass-identify-policy-tests
+		tests/mass-identify-policy-tests.cpp
+	)
+	target_link_libraries(mass-identify-policy-tests PRIVATE plugin-shared)
+	target_include_directories(
+		mass-identify-policy-tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+	add_test(
+		NAME mass-identify-policy
+		COMMAND mass-identify-policy-tests ${CMAKE_SOURCE_DIR}/D2RPlugins.json
 	)
 endif()

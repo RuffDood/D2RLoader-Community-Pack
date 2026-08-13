@@ -101,8 +101,6 @@ struct FamilyConfig {
 
 struct Config {
     bool enabled{};
-    bool diagnostics{};
-    bool logScans{};
     std::uint32_t distance{4};
     std::uint32_t interval{3};
     FamilyConfig healing{};
@@ -351,7 +349,7 @@ inline Config ParseConfig(const nlohmann::json& itemsConfig) {
     RequireKnownSettings(*feature, {
         "enabled", "pickupDistance", "minimumIntervalActions",
         "minimumIntervalFrames", "familyPriority", "healing", "mana",
-        "rejuvenation", "diagnostics"
+        "rejuvenation"
     }, path);
 
     Config parsed{};
@@ -383,16 +381,6 @@ inline Config ParseConfig(const nlohmann::json& itemsConfig) {
         family != feature->end()) {
         parsed.rejuvenation = ParseFamilyConfig(
             *family, Family::Rejuvenation, "items.potionAutoPickUp.rejuvenation");
-    }
-    if (const auto diagnostics = feature->find("diagnostics");
-        diagnostics != feature->end()) {
-        RequireKnownSettings(*diagnostics, {"enabled", "logScans"},
-            "items.potionAutoPickUp.diagnostics");
-        parsed.diagnostics = ReadOptionalBoolean(
-            *diagnostics, "enabled", false, "items.potionAutoPickUp.diagnostics");
-        parsed.logScans = ReadOptionalBoolean(
-            *diagnostics, "logScans", false,
-            "items.potionAutoPickUp.diagnostics");
     }
     return parsed;
 }

@@ -22,6 +22,12 @@ bool Throws(Callback&& callback) {
 int main() {
     using namespace ruffneckk::remote_stash;
 
+    Hotkey hotkey{};
+    TEST_REQUIRE(ParseHotkey("F24", hotkey));
+    TEST_REQUIRE(hotkey.virtualKey == 0x87 && !IsMouseHotkey(hotkey));
+    TEST_REQUIRE(!ParseHotkey("F25", hotkey));
+    TEST_REQUIRE(!ParseHotkey("F4294967297", hotkey));
+
     const auto defaults = ParseHotkeyConfig(nlohmann::json::object());
     TEST_REQUIRE(!defaults.enabled);
     TEST_REQUIRE(defaults.hotkeyText == "None");

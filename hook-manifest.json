@@ -1971,6 +1971,136 @@
       "length": 5,
       "expectedBytes": "E8 78 AC EA FF",
       "source": "src/plugin-misc/floating-damage-feature.cpp"
+    },
+    {
+      "id": "items.massIdentify.targetingPacketWorker",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "inline-hook",
+      "rva": "0x1C7A30",
+      "length": 35,
+      "expectedBytes": "40 53 48 81 EC B0 00 00 00 48 8B 05 88 38 80 02 48 33 C4 48 89 84 24 90 00 00 00 48 8B D9 E8 8D 77 F8 FF",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.cainIdentifyCallback",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "inline-hook",
+      "rva": "0x4C6C90",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 48 8D AC 24 18 B0 FF FF B8 E8 50 00 00 E8 39 A4 E0 00 48 2B E0 48 8B 05 17 46 50",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.legacyDropAppender",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2279BD",
+      "length": 5,
+      "expectedBytes": "E8 CE D1 3C 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernDropAppender",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C552D",
+      "length": 5,
+      "expectedBytes": "E8 5E F6 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.legacyMoveAppenderA",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2278DC",
+      "length": 5,
+      "expectedBytes": "E8 AF D2 3C 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.legacyMoveAppenderB",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x227936",
+      "length": 5,
+      "expectedBytes": "E8 55 D2 3C 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernMoveAppenderA",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C5241",
+      "length": 5,
+      "expectedBytes": "E8 4A F9 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernMoveAppenderB",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C528D",
+      "length": 5,
+      "expectedBytes": "E8 FE F8 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernMoveAppenderC",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C53AB",
+      "length": 5,
+      "expectedBytes": "E8 E0 F7 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernSellAppender",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C51A9",
+      "length": 5,
+      "expectedBytes": "E8 E2 F9 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernGiveAppender",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C5455",
+      "length": 5,
+      "expectedBytes": "E8 36 F7 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.alternateMoveAppender",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2CA2E0",
+      "length": 5,
+      "expectedBytes": "E8 AB A8 32 00",
+      "source": "src/plugin-items/mass-identify.cpp"
+    },
+    {
+      "id": "items.massIdentify.modernUiStateProbe",
+      "owner": "plugin-items",
+      "feature": "items.massIdentify",
+      "kind": "call-site",
+      "rva": "0x2C55F2",
+      "length": 5,
+      "expectedBytes": "E8 09 8F E0 FF",
+      "source": "src/plugin-items/mass-identify.cpp"
     }
   ]
 }

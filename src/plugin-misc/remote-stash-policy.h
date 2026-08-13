@@ -75,7 +75,9 @@ inline bool ParseMainKey(
         unsigned value{};
         for (std::size_t index = 1; index < token.size(); ++index) {
             if (token[index] < '0' || token[index] > '9') return false;
-            value = value * 10 + static_cast<unsigned>(token[index] - '0');
+            const auto digit = static_cast<unsigned>(token[index] - '0');
+            if (value > (24U - digit) / 10U) return false;
+            value = value * 10 + digit;
         }
         if (value >= 1 && value <= 24) {
             virtualKey = 0x70U + value - 1U;

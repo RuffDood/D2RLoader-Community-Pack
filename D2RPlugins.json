@@ -5,10 +5,25 @@
         "magicItemsSpawnIdentified": false,
         "rareItemsSpawnIdentified": false,
 
-        // Use vanilla diminishing returns or linear positive Magic Find for
-        // Unique, Set, and Rare quality rolls. Magic quality is already linear.
+        // Allowed values (case-sensitive): "vanilla" or "linear".
+        // "vanilla" uses the regular Diablo II: Resurrected Magic Find
+        // calculation, including diminishing returns for Unique, Set, and Rare.
+        // "linear" applies positive Magic Find directly to Unique, Set, and Rare
+        // without those diminishing returns. Magic quality and non-positive
+        // Magic Find keep their regular game behavior in both modes.
         "magicFindFormula": {
             "mode": "vanilla"
+        },
+
+        // Hold Shift and right-click a Tome of Identify to identify eligible items.
+        // Character inventory is always included. These public defaults consume
+        // normal Tome charges and exclude the Cube, personal stash, and shared stash.
+        "massIdentify": {
+            "enabled": true,
+            "freeIdentification": false,
+            "includeCube": false,
+            "includePersonalStash": false,
+            "includeSharedStash": false
         },
 
         // Reduce durability loss, change ethereal maximum durability, or give
@@ -158,13 +173,20 @@
         },
 
         // Control every ethereal item rule from one block.
-        // Excluded codes use the Code column from itemtypes.txt; parent types include descendants.
         // These shipped values preserve vanilla behavior.
         "etherealItemRules": {
             "enabled": false,
+            // Item-type codes come from the Code column in itemtypes.txt.
+            // Parent codes include every descendant: "armo" (Any Armor) is the
+            // parent of "tors" (body armor), "helm", "boot", "glov", "belt",
+            // and "shld". Use ["armo"] for the whole family, or a narrower valid
+            // list such as ["tors", "helm", "belt"].
             "excludedItemTypes": [],
+            // Vanilla value: percentage chance that an eligible item rolls ethereal.
             "chancePercent": 5,
+            // Allow Set items to roll ethereal at chancePercent.
             "allowSetItems": false,
+            // Allow indestructible items to roll ethereal at chancePercent.
             "allowIndestructibleItems": false
         },
 
@@ -177,47 +199,70 @@
             "showBaseDefenseRange": true,
             "showPropertyRanges": true,
             "includeSocketedContributionsInRanges": false,
+            // Case-sensitive: "ChronicleColor" (teal/light blue) or
+            // "BHDarkGreen" (the dark green used by BH).
             "propertyRangeColor": "ChronicleColor",
+            // Case-sensitive: "HoldHotkey" or "Always".
             "rangeDisplayMode": "HoldHotkey",
+            // Used by HoldHotkey mode. Supports Shift/Ctrl/Alt variants, A-Z,
+            // 0-9, F1-F12, Mouse4, or Mouse5. Always mode ignores this key.
             "holdToDisplayHotkey": "Shift"
         },
 
-        // Automatically pick up only the potion codes explicitly listed below.
-        // Lists contain quoted item codes: hp1-hp5, mp1-mp5, rvs, or rvl.
-        // Inactive example: "tiers": ["hp5"]. Columns are integers from 1 to 4.
-        // If no valid belt or inventory space remains, the item stays on the ground.
+        // Automatically pick up only the potion codes explicitly selected below.
+        // Valid codes: hp1-hp5, mp1-mp5, rvs, and rvl.
+        // To activate an example, set this block and that family's "enabled"
+        // to true, then replace its empty arrays with the shown values.
         "potionAutoPickUp": {
             "enabled": false,
+            // Maximum native D2R grid-distance cost from the player, inclusive.
+            // Accepted range: 1-4. This is the game's collision/unit grid, not
+            // a number of screen pixels or a count of large map tiles.
             "pickupDistance": 4,
-            "minimumIntervalActions": 3,
+            // When several families are eligible, names listed here are checked
+            // first, from left to right. Unlisted families then use the default
+            // healing, mana, rejuvenation order. An empty list uses that default.
+            // Valid example: ["rejuvenation", "healing", "mana"].
             "familyPriority": [],
             "healing": {
                 "enabled": false,
+                // Potion codes from this family that may be picked up.
+                // Valid example: "tiers": ["hp3", "hp4", "hp5"]
                 "tiers": [],
+                // Ordered belt columns, 1 (leftmost) through 4 (rightmost).
+                // Valid example: "columns": [1, 2]
                 "columns": [],
-                "overflowToInventory": false,
+                // Exact selected tiers allowed into inventory when no configured
+                // belt column has room. Empty means belt only. Valid example:
+                // "overflowTiers": ["hp4", "hp5"]
+                // If inventory is full, the potion stays on the ground.
                 "overflowTiers": [],
+                // Preferred pickup order inside this family. Unlisted tiers follow
+                // in highest-to-lowest order. Valid example:
+                // "tierPriority": ["hp5", "hp4", "hp3"]
                 "tierPriority": []
             },
             "mana": {
                 "enabled": false,
+                // Valid examples: "tiers": ["mp3", "mp4", "mp5"]
+                // and "columns": [3, 4]
                 "tiers": [],
                 "columns": [],
-                "overflowToInventory": false,
+                // Valid example: "overflowTiers": ["mp4", "mp5"]
                 "overflowTiers": [],
+                // Valid example: "tierPriority": ["mp5", "mp4", "mp3"]
                 "tierPriority": []
             },
             "rejuvenation": {
                 "enabled": false,
+                // Valid examples: "tiers": ["rvs", "rvl"]
+                // and "columns": [4]
                 "tiers": [],
                 "columns": [],
-                "overflowToInventory": false,
+                // Valid example: "overflowTiers": ["rvs", "rvl"]
                 "overflowTiers": [],
+                // Valid example: "tierPriority": ["rvl", "rvs"]
                 "tierPriority": []
-            },
-            "diagnostics": {
-                "enabled": false,
-                "logScans": false
             }
         }
     },
@@ -291,11 +336,12 @@
         },
 
         // Press a keyboard or mouse shortcut to activate the Cube Transmute button.
-        // Supports A-Z, 0-9, F1-F24, common navigation keys, and MOUSE3-MOUSE5.
-        // CTRL, SHIFT, and ALT are optional.
+        // Main keys: A-Z, 0-9, F1-F24, Space, Tab, Insert, Delete, Home, End,
+        // PageUp, PageDown, or Mouse3-Mouse5. CTRL, SHIFT, and ALT are optional
+        // and may be combined. Examples: "SHIFT+T", "CTRL+F5", "ALT+MOUSE4".
         "transmuteHotkey": {
             "enabled": false,
-            "hotkey": "CTRL+SHIFT+T"
+            "hotkey": "SHIFT+T"
         },
 
         // Prevent ongoing damage from killing your mercenary while in town.
@@ -304,13 +350,23 @@
         },
 
         // Open the native personal, shared, and crafting stash remotely.
-        // "None" leaves the optional hotkey unbound by default.
+        // Main keys: A-Z, 0-9, F1-F24, Space, Tab, Insert, Delete, Home, End,
+        // PageUp, PageDown, Semicolon, or Mouse3-Mouse5. CTRL, SHIFT, and ALT
+        // are optional and may be combined. Examples: "SHIFT+S", "CTRL+F6",
+        // "ALT+MOUSE5". "None" leaves the optional hotkey unbound; enabled
+        // controls only this hotkey, not a compatible mod layout button.
         "remoteStash": {
             "enabled": false,
             "hotkey": "None"
         },
 
         // Show visual-only combat numbers and a rolling DPS counter.
+        // Resolution handling is automatic for game-world projection, text size,
+        // outline/shadow scaling, and percentage-based DPS placement. Text uses
+        // 2160p as its reference: 1080p = 0.5x, 1440p = 0.667x, 2160p = 1x,
+        // with a 720p minimum scale. A 1080p user does not need to edit this.
+        // Motion/layout distances such as drift, spread, popup travel, and stack
+        // spacing remain raw screen pixels; tune them only for personal taste.
         "floatingDamage": {
             "enabled": false,
             "toggleHotkeyEnabled": true,
@@ -364,9 +420,7 @@
                 "lightning": [1.0, 0.95, 0.35, 1.0],
                 "cold": [0.45, 0.78, 1.0, 1.0],
                 "poison": [0.35, 0.90, 0.30, 1.0],
-                "magic": [0.72, 0.45, 1.0, 1.0],
-                "outline": [0.16, 0.11, 0.03, 1.0],
-                "shadow": [0.16, 0.11, 0.02, 1.0]
+                "magic": [0.72, 0.45, 1.0, 1.0]
             }
         }
     },

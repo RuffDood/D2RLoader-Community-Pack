@@ -92,6 +92,8 @@ HHOOK UiMessageHookHandle{};
 DWORD UiThreadId{};
 UINT DispatchRequestMessage{};
 
+void ReplayRefusedHotkey() noexcept;
+
 template<class T>
 T At(std::uintptr_t rva) noexcept {
     return reinterpret_cast<T>(Base + rva);
@@ -253,10 +255,12 @@ void ProcessQueuedRequest() noexcept {
     const auto now = GetTickCount64();
     if (!IsFreshRequest(now, requestedAt, RequestLifetimeMilliseconds)) {
         StaleRequests.fetch_add(1, std::memory_order_relaxed);
+        ReplayRefusedHotkey();
         return;
     }
     if (KnownInputIsBlocked()) {
         RefusedRequests.fetch_add(1, std::memory_order_relaxed);
+        ReplayRefusedHotkey();
         return;
     }
     if (TryDispatchPanel(StandaloneCubePanel, "standalone")
@@ -264,6 +268,7 @@ void ProcessQueuedRequest() noexcept {
         return;
     }
     RefusedRequests.fetch_add(1, std::memory_order_relaxed);
+    ReplayRefusedHotkey();
 }
 
 void __fastcall HookIntegratedCubeUpdate(void* controller) noexcept {
@@ -313,6 +318,42 @@ HWND FindGameWindow() noexcept {
 
 bool ModifierDown(int virtualKey) noexcept {
     return (GetAsyncKeyState(virtualKey) & 0x8000) != 0;
+}
+
+void ReplayRefusedHotkey() noexcept {
+    std::array<INPUT, 2> input{};
+    if (!IsMouseHotkey(Settings.hotkey)) {
+        input[0].type = INPUT_KEYBOARD;
+        input[0].ki.wVk = static_cast<WORD>(Settings.hotkey.virtualKey);
+        input[1] = input[0];
+        input[1].ki.dwFlags = KEYEVENTF_KEYUP;
+    } else {
+        input[0].type = INPUT_MOUSE;
+        input[1].type = INPUT_MOUSE;
+        switch (Settings.hotkey.virtualKey) {
+        case VK_MBUTTON:
+            input[0].mi.dwFlags = MOUSEEVENTF_MIDDLEDOWN;
+            input[1].mi.dwFlags = MOUSEEVENTF_MIDDLEUP;
+            break;
+        case VK_XBUTTON1:
+        case VK_XBUTTON2:
+            input[0].mi.dwFlags = MOUSEEVENTF_XDOWN;
+            input[1].mi.dwFlags = MOUSEEVENTF_XUP;
+            input[0].mi.mouseData = Settings.hotkey.virtualKey == VK_XBUTTON1
+                ? XBUTTON1 : XBUTTON2;
+            input[1].mi.mouseData = input[0].mi.mouseData;
+            break;
+        default:
+            return;
+        }
+    }
+    // Injected transitions bypass capture, so a request refused by the UI
+    // thread is replayed exactly once as D2R's normal key or mouse action.
+    if (SendInput(static_cast<UINT>(input.size()), input.data(), sizeof(INPUT))
+            != input.size() && Context) {
+        Context->LogWarn(
+            "TransmuteHotkey: a refused hotkey could not be replayed to the game.");
+    }
 }
 
 bool CubePanelObserved() noexcept {
@@ -390,8 +431,19 @@ bool QueueInputRequest() noexcept {
         return false;
     }
 
-    const auto now = GetTickCount64();
-    RequestedAt.store(now, std::memory_order_release);
+    auto now = GetTickCount64();
+    if (now == 0) now = 1;
+    std::uint64_t noPendingRequest{};
+    if (!RequestedAt.compare_exchange_strong(
+            noPendingRequest,
+            now,
+            std::memory_order_acq_rel,
+            std::memory_order_acquire
+        )) {
+        // A second press is not captured while an earlier request still owns
+        // the handoff; it continues to D2R through the normal input path.
+        return false;
+    }
     if (!PostThreadMessageW(
             UiThreadId,
             DispatchRequestMessage,
@@ -414,6 +466,9 @@ bool HandleInputTransition(
     bool injected
 ) noexcept {
     if (InputStopping.load(std::memory_order_acquire)) return false;
+    // Replayed input must pass through untouched. In particular, do not let
+    // its injected key-up clear the capture that owns the physical key-up.
+    if (injected) return false;
     if (isUp) {
         HotkeyPressed.store(false, std::memory_order_release);
         const auto captured = HotkeyCaptured.exchange(
@@ -422,7 +477,7 @@ bool HandleInputTransition(
         );
         return captured && CurrentProcessOwnsForegroundWindow();
     }
-    if (!isDown || injected || !CurrentProcessOwnsForegroundWindow()) return false;
+    if (!isDown || !CurrentProcessOwnsForegroundWindow()) return false;
 
     const auto firstDown = !HotkeyPressed.exchange(
         true,
