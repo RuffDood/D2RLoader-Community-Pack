@@ -16,8 +16,40 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Prepare CI-only vanilla table stubs
+        shell: pwsh
+        run: |
+          $ciExcel = Join-Path $env:RUNNER_TEMP "community-pack-vanilla-excel"
+          New-Item -ItemType Directory -Path $ciExcel -Force | Out-Null
+          $tables = @(
+            "itemstatcost.txt",
+            "properties.txt",
+            "magicsuffix.txt",
+            "magicprefix.txt",
+            "automagic.txt",
+            "qualityitems.txt",
+            "uniqueitems.txt",
+            "setitems.txt",
+            "armor.txt",
+            "itemtypes.txt",
+            "weapons.txt",
+            "misc.txt",
+            "gems.txt",
+            "runes.txt",
+            "cubemain.txt"
+          )
+          foreach ($table in $tables) {
+            Set-Content -LiteralPath (Join-Path $ciExcel $table) `
+              -Value "CI-only compile stub" -Encoding ascii
+          }
+          "COMMUNITY_PACK_CI_EXCEL=$ciExcel" | Out-File `
+            -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
       - name: Configure
-        run: cmake -S . -B build -A x64 -DBUILD_TESTING=ON
+        run: >-
+          cmake -S . -B build -A x64
+          -DBUILD_TESTING=ON
+          -DCOMMUNITY_PACK_VANILLA_EXCEL_DIR="$env:COMMUNITY_PACK_CI_EXCEL"
 
       - name: Build Debug
         run: cmake --build build --config Debug --parallel 2

@@ -219,6 +219,23 @@ Community Pack 1.0.0 is published with eezstreet's express permission.
 The exact source snapshot and included corrective commits are recorded in
 [`SOURCE-PROVENANCE.md`](SOURCE-PROVENANCE.md).
 
+## Building from source
+
+`plugin-items.dll` embeds original Diablo II: Resurrected 3.2 vanilla tables
+for AdvancedTooltips. Those copyrighted game-data files are not distributed in
+this repository. Point CMake to your own extracted `data/global/excel`
+directory when configuring a production build:
+
+```powershell
+cmake -S . -B build -A x64 -DBUILD_TESTING=ON `
+  -DCOMMUNITY_PACK_VANILLA_EXCEL_DIR="C:/path/to/data/global/excel"
+```
+
+The GitHub Actions workflow uses clearly labeled compile-only placeholders so
+it can validate source compilation and tests without publishing game data.
+DLLs produced by that workflow are not release artifacts and must not be
+distributed or used in game.
+
 ## Credits and licenses
 
 - **eezstreet** — creator and maintainer of the original PluginPack.
