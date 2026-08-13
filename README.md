@@ -6,6 +6,17 @@ configuration file. It is intended for players and mod authors who want the
 pack's fixes, quality-of-life options, and configurable gameplay extensions
 without managing a collection of overlapping standalone plugins.
 
+## Download
+
+For the ready-to-install package, open
+[Releases](https://github.com/RuffDood/D2RLoader-Community-Pack/releases/latest)
+and download `Community-Pack-1.0.0-Windows-x64.zip`.
+
+GitHub's **Code → Download ZIP** option is a source-code snapshot. It does not
+contain compiled DLLs and is not the installable package. The release asset
+contains the five DLLs and `D2RPlugins.json` in their correct `d2rloader`
+folders.
+
 This release requires **D2RLoader 1.0.1 or later** and supports
 **Diablo II: Resurrected 3.2.92777**. It refuses unsupported game builds rather
 than installing unverified native hooks.
