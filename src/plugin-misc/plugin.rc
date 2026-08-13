@@ -1,0 +1,18 @@
+#include <D2RLPlugin/resource.h>
+#include <D2RLPlugin/version.h>
+#include "floating-damage-resource.h"
+
+D2RL_PLUGIN_MANIFEST_RESOURCE_ID RCDATA { D2RL_PLUGIN_RESOURCE_DWORD(D2RL_PLUGIN_API_VERSION) }
+
+IDR_FD_FONT_0  RCDATA "floating-damage-fonts\\0.otf"
+IDR_FD_FONT_1  RCDATA "floating-damage-fonts\\1.otf"
+IDR_FD_FONT_2  RCDATA "floating-damage-fonts\\2.otf"
+IDR_FD_FONT_3  RCDATA "floating-damage-fonts\\3.otf"
+IDR_FD_FONT_4  RCDATA "floating-damage-fonts\\4.otf"
+IDR_FD_FONT_5  RCDATA "floating-damage-fonts\\5.otf"
+IDR_FD_FONT_6  RCDATA "floating-damage-fonts\\6.otf"
+IDR_FD_FONT_7  RCDATA "floating-damage-fonts\\7.otf"
+IDR_FD_FONT_8  RCDATA "floating-damage-fonts\\8.otf"
+IDR_FD_FONT_9  RCDATA "floating-damage-fonts\\9.otf"
+IDR_FD_FONT_10 RCDATA "floating-damage-fonts\\10.otf"
+IDR_FD_FONT_11 RCDATA "floating-damage-fonts\\11.otf"

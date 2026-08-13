@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "targetBuild": "3.2.92777",
+  "sites": [
+    {
+      "id": "fixture.items.rawWrite",
+      "owner": "plugin-items",
+      "feature": "fixture.rawWrite",
+      "kind": "byte-patch",
+      "rva": "0x1000",
+      "length": 1,
+      "expectedBytes": "90",
+      "source": "src/plugin-items/bad.cpp"
+    }
+  ]
+}

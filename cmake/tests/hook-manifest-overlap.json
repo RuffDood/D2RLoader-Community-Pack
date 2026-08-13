@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "targetBuild": "3.2.92777",
+  "sites": [
+    {
+      "id": "fixture.items.first",
+      "owner": "plugin-items",
+      "feature": "fixture.first",
+      "kind": "byte-patch",
+      "rva": "0x1000",
+      "length": 5,
+      "expectedBytes": "90 90 90 90 90",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "fixture.skills.overlap",
+      "owner": "plugin-skills",
+      "feature": "fixture.overlap",
+      "kind": "inline-hook",
+      "rva": "0x1004",
+      "length": 2,
+      "expectedBytes": "90 90",
+      "source": "src/plugin-skills/skills-main.cpp"
+    }
+  ]
+}

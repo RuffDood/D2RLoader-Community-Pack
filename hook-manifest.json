@@ -1,0 +1,1976 @@
+{
+  "schemaVersion": 1,
+  "targetBuild": "3.2.92777",
+  "sites": [
+    {
+      "id": "items.vendorOverhaul.fillStoreInventory",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "inline-hook",
+      "rva": "0x53C9F0",
+      "length": 5,
+      "expectedBytes": "48 89 5C 24 10",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.nightmareScale",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x540F88",
+      "length": 1,
+      "expectedBytes": "06",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.nightmareBase",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x540F8A",
+      "length": 4,
+      "expectedBytes": "A0 0F 00 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.hellScale",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x54104D",
+      "length": 1,
+      "expectedBytes": "04",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.hellBase",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x54104F",
+      "length": 4,
+      "expectedBytes": "E8 03 00 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.hellUberScale",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x541084",
+      "length": 1,
+      "expectedBytes": "07",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.vendorOverhaul.hellUberBase",
+      "owner": "plugin-items",
+      "feature": "items.vendorOverhaul",
+      "kind": "byte-patch",
+      "rva": "0x541086",
+      "length": 4,
+      "expectedBytes": "88 13 00 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.gambleFilter.noRingAmuletGuarantee",
+      "owner": "plugin-items",
+      "feature": "items.gambleFilter",
+      "kind": "byte-patch",
+      "rva": "0x541A28",
+      "length": 1,
+      "expectedBytes": "7D",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.gambleFilter.bitfield",
+      "owner": "plugin-items",
+      "feature": "items.gambleFilter",
+      "kind": "inline-hook",
+      "rva": "0x541880",
+      "length": 6,
+      "expectedBytes": "40 56 41 54 41 55",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.gambleScreenLimit.generationLimit",
+      "owner": "plugin-items",
+      "feature": "items.gambleScreenLimit",
+      "kind": "byte-patch",
+      "rva": "0x541A7E",
+      "length": 1,
+      "expectedBytes": "0E",
+      "source": "src/plugin-items/gamble-screen-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.recordCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1516EBE",
+      "length": 4,
+      "expectedBytes": "48 83 F8 20",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.recordEndpoint",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1516ED1",
+      "length": 4,
+      "expectedBytes": "80 28 00 00",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.recordFillCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1516F43",
+      "length": 4,
+      "expectedBytes": "20 00 00 00",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.layoutSourceCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1519A1B",
+      "length": 1,
+      "expectedBytes": "20",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.layoutInitialCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1519A4F",
+      "length": 4,
+      "expectedBytes": "48 83 F8 20",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.layoutGrowthCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1519AAA",
+      "length": 4,
+      "expectedBytes": "48 83 F8 20",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.groundItemLabels.layoutShrinkCount",
+      "owner": "plugin-items",
+      "feature": "items.groundItemLabels",
+      "kind": "byte-patch",
+      "rva": "0x1519AF9",
+      "length": 6,
+      "expectedBytes": "49 83 7C 24 10 20",
+      "source": "src/plugin-items/ground-item-label-limit.cpp"
+    },
+    {
+      "id": "items.enhancedDamageMinMaxFix.evaluateAndUpdateStat",
+      "owner": "plugin-items",
+      "feature": "items.enhancedDamageMinMaxFix",
+      "kind": "inline-hook",
+      "rva": "0x2FA430",
+      "length": 15,
+      "expectedBytes": "4C 89 4C 24 20 4C 89 44 24 18 89 54 24 10 53",
+      "source": "src/plugin-items/enhanced-damage-min-max-fix.cpp"
+    },
+    {
+      "id": "items.magicFindFormula.unique",
+      "owner": "plugin-items",
+      "feature": "items.magicFindFormula",
+      "kind": "byte-patch",
+      "rva": "0x4423CD",
+      "length": 2,
+      "expectedBytes": "7F 04",
+      "source": "src/plugin-items/magic-find-formula.cpp"
+    },
+    {
+      "id": "items.magicFindFormula.set",
+      "owner": "plugin-items",
+      "feature": "items.magicFindFormula",
+      "kind": "byte-patch",
+      "rva": "0x44246A",
+      "length": 2,
+      "expectedBytes": "7F 04",
+      "source": "src/plugin-items/magic-find-formula.cpp"
+    },
+    {
+      "id": "items.magicFindFormula.rare",
+      "owner": "plugin-items",
+      "feature": "items.magicFindFormula",
+      "kind": "byte-patch",
+      "rva": "0x4424F7",
+      "length": 2,
+      "expectedBytes": "7F 04",
+      "source": "src/plugin-items/magic-find-formula.cpp"
+    },
+    {
+      "id": "items.disableGoldPenalty",
+      "owner": "plugin-items",
+      "feature": "items.disableGoldPenalty",
+      "kind": "nop",
+      "rva": "0x424AD1",
+      "length": 5,
+      "expectedBytes": "E8 DA 11 00 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.magicItemsSpawnIdentified",
+      "owner": "plugin-items",
+      "feature": "items.magicItemsSpawnIdentified",
+      "kind": "nop",
+      "rva": "0x442D2A",
+      "length": 5,
+      "expectedBytes": "E8 C1 AB F2 FF",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.rareItemsSpawnIdentified",
+      "owner": "plugin-items",
+      "feature": "items.rareItemsSpawnIdentified",
+      "kind": "nop",
+      "rva": "0x58BE1A",
+      "length": 5,
+      "expectedBytes": "E8 D1 1A DE FF",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.inventoryGoldLimit",
+      "owner": "plugin-items",
+      "feature": "items.inventoryGoldLimit",
+      "kind": "inline-hook",
+      "rva": "0x34B320",
+      "length": 7,
+      "expectedBytes": "48 83 EC 28 45 33 C0",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.magic",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.magic",
+      "kind": "byte-patch",
+      "rva": "0x372638",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.set",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.set",
+      "kind": "byte-patch",
+      "rva": "0x37263C",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.rare",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.rare",
+      "kind": "byte-patch",
+      "rva": "0x372640",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.unique",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.unique",
+      "kind": "byte-patch",
+      "rva": "0x372644",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.crafted",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.crafted",
+      "kind": "byte-patch",
+      "rva": "0x372648",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.runewordQualities.tempered",
+      "owner": "plugin-items",
+      "feature": "items.runewordQualities.tempered",
+      "kind": "byte-patch",
+      "rva": "0x37264C",
+      "length": 4,
+      "expectedBytes": "40 24 37 00",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.playerConditionCalc.compileTxtCall",
+      "owner": "plugin-items",
+      "feature": "items.playerConditionCalc",
+      "kind": "call-site",
+      "rva": "0x3A85A2",
+      "length": 5,
+      "expectedBytes": "E8 C9 73 F5 FF",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.playerConditionCalc.createCompiledStructCall",
+      "owner": "plugin-items",
+      "feature": "items.playerConditionCalc",
+      "kind": "call-site",
+      "rva": "0x3A8682",
+      "length": 5,
+      "expectedBytes": "E8 39 E7 FF FF",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.playerConditionCalc.tcDropFunction",
+      "owner": "plugin-items",
+      "feature": "items.playerConditionCalc",
+      "kind": "inline-hook",
+      "rva": "0x441300",
+      "length": 6,
+      "expectedBytes": "40 53 55 56 57 41",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.playerConditionCalc.conditionGate",
+      "owner": "plugin-items",
+      "feature": "items.playerConditionCalc",
+      "kind": "inline-hook",
+      "rva": "0x444920",
+      "length": 5,
+      "expectedBytes": "48 89 5C 24 08",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.playerConditionCalc.conditionCalcEval",
+      "owner": "plugin-items",
+      "feature": "items.playerConditionCalc",
+      "kind": "inline-hook",
+      "rva": "0x3B5380",
+      "length": 5,
+      "expectedBytes": "48 89 5C 24 08",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.physResistCap.maximum",
+      "owner": "plugin-items",
+      "feature": "items.physResistCap",
+      "kind": "byte-patch",
+      "rva": "0x4524D6",
+      "length": 1,
+      "expectedBytes": "32",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.elementalResistCap.maximum",
+      "owner": "plugin-items",
+      "feature": "items.elementalResistCap",
+      "kind": "byte-patch",
+      "rva": "0x4524DE",
+      "length": 1,
+      "expectedBytes": "5F",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.absorbCap.maximum",
+      "owner": "plugin-items",
+      "feature": "items.absorbCap",
+      "kind": "byte-patch",
+      "rva": "0x4506A1",
+      "length": 1,
+      "expectedBytes": "28",
+      "source": "src/plugin-items/items-main.cpp"
+    },
+    {
+      "id": "items.etherealItemRules.itemTypeCheck",
+      "owner": "plugin-items",
+      "feature": "items.etherealItemRules",
+      "kind": "inline-hook",
+      "rva": "0x373890",
+      "length": 15,
+      "expectedBytes": "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20",
+      "source": "src/plugin-items/items-ethereal.cpp"
+    },
+    {
+      "id": "items.etherealItemRules.chance",
+      "owner": "plugin-items",
+      "feature": "items.etherealItemRules",
+      "kind": "byte-patch",
+      "rva": "0x4434DF",
+      "length": 1,
+      "expectedBytes": "05",
+      "source": "src/plugin-items/items-ethereal.cpp"
+    },
+    {
+      "id": "items.etherealItemRules.setEligibility",
+      "owner": "plugin-items",
+      "feature": "items.etherealItemRules",
+      "kind": "nop",
+      "rva": "0x443315",
+      "length": 6,
+      "expectedBytes": "0F 84 3D 02 00 00",
+      "source": "src/plugin-items/items-ethereal.cpp"
+    },
+    {
+      "id": "items.etherealItemRules.durabilityEligibilityCall",
+      "owner": "plugin-items",
+      "feature": "items.etherealItemRules",
+      "kind": "call-site",
+      "rva": "0x4432F4",
+      "length": 5,
+      "expectedBytes": "E8 47 02 F3 FF",
+      "source": "src/plugin-items/items-ethereal.cpp"
+    },
+    {
+      "id": "items.etherealItemRules.indestructibleHelper",
+      "owner": "plugin-items",
+      "feature": "items.etherealItemRules",
+      "kind": "byte-patch",
+      "rva": "0x46D840",
+      "length": 67,
+      "expectedBytes": "CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC",
+      "source": "src/plugin-items/items-ethereal.cpp"
+    },
+    {
+      "id": "items.itemDurability.loss",
+      "owner": "plugin-items",
+      "feature": "items.itemDurability",
+      "kind": "inline-hook",
+      "rva": "0x441B10",
+      "length": 28,
+      "expectedBytes": "48 89 6C 24 10 56 57 41 54 41 56 41 57 48 83 EC 30 4C 8B F2 48 8B E9 BA 32 00 00 00",
+      "source": "src/plugin-items/item-durability.cpp"
+    },
+    {
+      "id": "items.itemDurability.etherealMaximum",
+      "owner": "plugin-items",
+      "feature": "items.itemDurability",
+      "kind": "inline-hook",
+      "rva": "0x2F48C0",
+      "length": 55,
+      "expectedBytes": "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 20 41 0F B7 E8 8B DA 48 8B F9 48 85 C9 75 2A 88 4C 24 30 48 8D 4C 24 30 E8 00 D2 FF FF 84 C0 74 01 CC 33 C0",
+      "source": "src/plugin-items/item-durability.cpp"
+    },
+    {
+      "id": "items.itemDurability.rangedRecords",
+      "owner": "plugin-items",
+      "feature": "items.itemDurability",
+      "kind": "inline-hook",
+      "rva": "0x314110",
+      "length": 19,
+      "expectedBytes": "40 57 48 83 EC 30 8B FA E8 73 C9 FE FF 3B B8 A8 15 00 00",
+      "source": "src/plugin-items/item-durability.cpp"
+    },
+    {
+      "id": "items.charmAuraTriggerFix.actTransition",
+      "owner": "plugin-items",
+      "feature": "items.charmAuraTriggerFix",
+      "kind": "inline-hook",
+      "rva": "0x502D00",
+      "length": 15,
+      "expectedBytes": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18",
+      "source": "src/plugin-items/charm-aura-trigger-fix.cpp"
+    },
+    {
+      "id": "items.charmAuraTriggerFix.attachSound",
+      "owner": "plugin-items",
+      "feature": "items.charmAuraTriggerFix",
+      "kind": "inline-hook",
+      "rva": "0x491960",
+      "length": 15,
+      "expectedBytes": "48 89 5C 24 08 48 89 74 24 18 57 48 83 EC 20",
+      "source": "src/plugin-items/charm-aura-trigger-fix.cpp"
+    },
+    {
+      "id": "items.charmAuraTriggerFix.playerModeFinalize",
+      "owner": "plugin-items",
+      "feature": "items.charmAuraTriggerFix",
+      "kind": "inline-hook",
+      "rva": "0x42D2C0",
+      "length": 16,
+      "expectedBytes": "48 89 5C 24 20 4C 89 44 24 18 55 56 57 48 83 EC",
+      "source": "src/plugin-items/charm-aura-trigger-fix.cpp"
+    },
+    {
+      "id": "items.repairCostsCap.transactionCost",
+      "owner": "plugin-items",
+      "feature": "items.repairCostsCap",
+      "kind": "inline-hook",
+      "rva": "0x36F0C0",
+      "length": 29,
+      "expectedBytes": "4C 89 4C 24 20 44 89 44 24 18 48 89 54 24 10 48 89 4C 24 08 55 57 41 55 48 8D 6C 24 C9",
+      "source": "src/plugin-items/repair-costs-cap.cpp"
+    },
+    {
+      "id": "items.repairCostsCap.repairAllCost",
+      "owner": "plugin-items",
+      "feature": "items.repairCostsCap",
+      "kind": "inline-hook",
+      "rva": "0x375330",
+      "length": 33,
+      "expectedBytes": "41 54 41 55 41 56 41 57 48 81 EC 88 02 00 00 48 8B 05 82 5F 65 02 48 33 C4 48 89 84 24 50 02 00 00",
+      "source": "src/plugin-items/repair-costs-cap.cpp"
+    },
+    {
+      "id": "items.repairCostsCap.zeroCostBranch",
+      "owner": "plugin-items",
+      "feature": "items.repairCostsCap",
+      "kind": "byte-patch",
+      "rva": "0x53FF65",
+      "length": 16,
+      "expectedBytes": "3B C7 0F 82 AD 00 00 00 85 FF 74 6F 48 8B 55 48",
+      "source": "src/plugin-items/repair-costs-cap.cpp"
+    },
+    {
+      "id": "items.repairCostsCap.repairItem",
+      "owner": "plugin-items",
+      "feature": "items.repairCostsCap",
+      "kind": "inline-hook",
+      "rva": "0x53BB50",
+      "length": 32,
+      "expectedBytes": "48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 30 48 8B E9 49 8B F0 48 8B CA 48 8B FA E8 D0 EF E2 FF",
+      "source": "src/plugin-items/repair-costs-cap.cpp"
+    },
+    {
+      "id": "levels.disableAct1Path.spawnCall",
+      "owner": "plugin-levels",
+      "feature": "levels.disableAct1Path",
+      "kind": "byte-patch",
+      "rva": "0x3FF5DE",
+      "length": 5,
+      "expectedBytes": "E8 3D 02 00 00",
+      "source": "src/plugin-levels/levels-main.cpp"
+    },
+    {
+      "id": "levels.disableAct1Path.guardBranch",
+      "owner": "plugin-levels",
+      "feature": "levels.disableAct1Path",
+      "kind": "byte-patch",
+      "rva": "0x3FF5EB",
+      "length": 1,
+      "expectedBytes": "7E",
+      "source": "src/plugin-levels/levels-main.cpp"
+    },
+    {
+      "id": "misc.playersCommandLimit.parseCall",
+      "owner": "plugin-misc",
+      "feature": "misc.playersCommandLimit",
+      "kind": "call-site",
+      "rva": "0x18885B",
+      "length": 5,
+      "expectedBytes": "E8 44 1B 15 01",
+      "source": "src/plugin-misc/misc-main.cpp"
+    },
+    {
+      "id": "misc.playersCommandLimit.applyCall",
+      "owner": "plugin-misc",
+      "feature": "misc.playersCommandLimit",
+      "kind": "call-site",
+      "rva": "0x18887F",
+      "length": 5,
+      "expectedBytes": "E8 9C 67 BA 00",
+      "source": "src/plugin-misc/misc-main.cpp"
+    },
+    {
+      "id": "misc.playerCountCaps.getBonus",
+      "owner": "plugin-misc",
+      "feature": "misc.monsterPlayerCountCaps",
+      "kind": "inline-hook",
+      "rva": "0x542F40",
+      "length": 16,
+      "expectedBytes": "48 89 5C 24 18 55 57 41 56 48 83 EC 40 49 8B D9",
+      "source": "src/plugin-misc/misc-main.cpp"
+    },
+    {
+      "id": "quests.denOfEvil.skillPoints",
+      "owner": "plugin-quests",
+      "feature": "quests.denOfEvil",
+      "kind": "byte-patch",
+      "rva": "0x5DE5A0",
+      "length": 1,
+      "expectedBytes": "01",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.izual.skillPoints",
+      "owner": "plugin-quests",
+      "feature": "quests.izual",
+      "kind": "byte-patch",
+      "rva": "0x5E6EEE",
+      "length": 1,
+      "expectedBytes": "02",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.blackBook.statPoints",
+      "owner": "plugin-quests",
+      "feature": "quests.blackBook",
+      "kind": "byte-patch",
+      "rva": "0x5ED713",
+      "length": 1,
+      "expectedBytes": "04",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.goldenBird.stat",
+      "owner": "plugin-quests",
+      "feature": "quests.goldenBird",
+      "kind": "byte-patch",
+      "rva": "0x5806C1",
+      "length": 1,
+      "expectedBytes": "07",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.goldenBird.amount",
+      "owner": "plugin-quests",
+      "feature": "quests.goldenBird",
+      "kind": "byte-patch",
+      "rva": "0x5806B7",
+      "length": 4,
+      "expectedBytes": "00 14 00 00",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.radamentSkillBook.amount",
+      "owner": "plugin-quests",
+      "feature": "quests.radamentSkillBook",
+      "kind": "byte-patch",
+      "rva": "0x58078F",
+      "length": 1,
+      "expectedBytes": "01",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.radamentSkillBook.stat",
+      "owner": "plugin-quests",
+      "feature": "quests.radamentSkillBook",
+      "kind": "byte-patch",
+      "rva": "0x58078B",
+      "length": 1,
+      "expectedBytes": "05",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.akaraCainRing.item",
+      "owner": "plugin-quests",
+      "feature": "quests.akaraCainRing",
+      "kind": "byte-patch",
+      "rva": "0x5D9A52",
+      "length": 4,
+      "expectedBytes": "72 69 6E 20",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.akaraCainRing.quality",
+      "owner": "plugin-quests",
+      "feature": "quests.akaraCainRing",
+      "kind": "byte-patch",
+      "rva": "0x5D9A4D",
+      "length": 4,
+      "expectedBytes": "8B 53 1C 41",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.akaraCainRing.difficultyCall",
+      "owner": "plugin-quests",
+      "feature": "quests.akaraCainRing",
+      "kind": "call-site",
+      "rva": "0x5D9A6D",
+      "length": 5,
+      "expectedBytes": "E8 BE DA F3 FF",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.ormusGidbinnRing.item",
+      "owner": "plugin-quests",
+      "feature": "quests.ormusGidbinnRing",
+      "kind": "byte-patch",
+      "rva": "0x5E9BC3",
+      "length": 4,
+      "expectedBytes": "72 69 6E 20",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.ormusGidbinnRing.quality",
+      "owner": "plugin-quests",
+      "feature": "quests.ormusGidbinnRing",
+      "kind": "byte-patch",
+      "rva": "0x5E9BD6",
+      "length": 1,
+      "expectedBytes": "C7",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.ormusGidbinnRing.difficultyCall",
+      "owner": "plugin-quests",
+      "feature": "quests.ormusGidbinnRing",
+      "kind": "call-site",
+      "rva": "0x5E9BDE",
+      "length": 5,
+      "expectedBytes": "E8 4D D9 F2 FF",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.qualKehkRunes.item1",
+      "owner": "plugin-quests",
+      "feature": "quests.qualKehkRunes",
+      "kind": "byte-patch",
+      "rva": "0x23A02C0",
+      "length": 3,
+      "expectedBytes": "72 30 37",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.qualKehkRunes.item2",
+      "owner": "plugin-quests",
+      "feature": "quests.qualKehkRunes",
+      "kind": "byte-patch",
+      "rva": "0x23A02C4",
+      "length": 3,
+      "expectedBytes": "72 30 38",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.qualKehkRunes.item3",
+      "owner": "plugin-quests",
+      "feature": "quests.qualKehkRunes",
+      "kind": "byte-patch",
+      "rva": "0x23A02C8",
+      "length": 3,
+      "expectedBytes": "72 30 39",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.qualKehkRunes.difficultyCall",
+      "owner": "plugin-quests",
+      "feature": "quests.qualKehkRunes",
+      "kind": "call-site",
+      "rva": "0x54C9AC",
+      "length": 5,
+      "expectedBytes": "E8 7F AB FC FF",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.imbueAllowSockets.guard1",
+      "owner": "plugin-quests",
+      "feature": "quests.imbueAllowSockets",
+      "kind": "nop",
+      "rva": "0x36B123",
+      "length": 2,
+      "expectedBytes": "0F 85",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "quests.imbueAllowSockets.guard2",
+      "owner": "plugin-quests",
+      "feature": "quests.imbueAllowSockets",
+      "kind": "nop",
+      "rva": "0x36B61B",
+      "length": 2,
+      "expectedBytes": "75 6A",
+      "source": "src/plugin-quests/quests-main.cpp"
+    },
+    {
+      "id": "skills.manaCosts.compileSkillsTxt",
+      "owner": "plugin-skills",
+      "feature": "skills.manaCostsLifeOrStamina",
+      "kind": "inline-hook",
+      "rva": "0x302380",
+      "length": 24,
+      "expectedBytes": "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 54 41 55 41 56 41 57",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.manaCosts.checkStat",
+      "owner": "plugin-skills",
+      "feature": "skills.manaCostsLifeOrStamina",
+      "kind": "inline-hook",
+      "rva": "0x340900",
+      "length": 14,
+      "expectedBytes": "40 55 56 41 54 41 57 48 83 EC 28 45 33 C0",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.manaCosts.clientPredict",
+      "owner": "plugin-skills",
+      "feature": "skills.manaCostsLifeOrStamina",
+      "kind": "inline-hook",
+      "rva": "0x2188B0",
+      "length": 20,
+      "expectedBytes": "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 20",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.manaCosts.getUseStateCall",
+      "owner": "plugin-skills",
+      "feature": "skills.manaCostsLifeOrStamina",
+      "kind": "call-site",
+      "rva": "0x21B180",
+      "length": 5,
+      "expectedBytes": "E8 DB 41 12 00",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.consume",
+      "owner": "plugin-skills",
+      "feature": "skills.manaCostsOrChargedPctDrainStat",
+      "kind": "inline-hook",
+      "rva": "0x436830",
+      "length": 16,
+      "expectedBytes": "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.classicWhirlwind",
+      "owner": "plugin-skills",
+      "feature": "skills.classicWhirlwind",
+      "kind": "byte-patch",
+      "rva": "0x5691E2",
+      "length": 5,
+      "expectedBytes": "E8 19 1A 00 00",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.whirlwindCtC",
+      "owner": "plugin-skills",
+      "feature": "skills.whirlwindCtC",
+      "kind": "byte-patch",
+      "rva": "0x589736",
+      "length": 6,
+      "expectedBytes": "0F 85 C1 00 00 00",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.telekinesisPicksUpEverything",
+      "owner": "plugin-skills",
+      "feature": "skills.telekinesisPicksUpEverything",
+      "kind": "call-site",
+      "rva": "0x554936",
+      "length": 5,
+      "expectedBytes": "E8 35 A8 DE FF",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.selfHealParams",
+      "owner": "plugin-skills",
+      "feature": "skills.selfHealParams",
+      "kind": "inline-hook",
+      "rva": "0x57D030",
+      "length": 20,
+      "expectedBytes": "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 30 4C 8B",
+      "source": "src/plugin-skills/skills-main.cpp"
+    },
+    {
+      "id": "skills.bulkSkillPointAllocation.sendPacket",
+      "owner": "plugin-skills",
+      "feature": "skills.bulkSkillPointAllocation",
+      "kind": "inline-hook",
+      "rva": "0x0EC700",
+      "length": 29,
+      "expectedBytes": "48 83 EC 28 88 4C 24 48 48 8D 4C 24 48 66 89 54 24 49 BA 05 00 00 00 66 44 89 44 24 4B",
+      "source": "src/plugin-skills/bulk-skill-point-allocation.cpp"
+    },
+    {
+      "id": "skills.bulkSkillPointAllocation.localizedString",
+      "owner": "plugin-skills",
+      "feature": "skills.bulkSkillPointAllocation",
+      "kind": "inline-hook",
+      "rva": "0x5F4B90",
+      "length": 29,
+      "expectedBytes": "4C 8B DC 55 53 57 49 8D 6B A1 48 81 EC B0 00 00 00 48 8B 05 20 67 3D 02 48 33 C4 48 89",
+      "source": "src/plugin-skills/bulk-skill-point-allocation.cpp"
+    },
+    {
+      "id": "skills.bulkSkillPointAllocation.uiDispatch",
+      "owner": "plugin-skills",
+      "feature": "skills.bulkSkillPointAllocation",
+      "kind": "inline-hook",
+      "rva": "0x843D90",
+      "length": 29,
+      "expectedBytes": "40 53 56 57 48 83 EC 20 4C 89 7C 24 58 4C 8B F9 E8 7B 1C A6 00 0F B6 90 18 01 00 00 84",
+      "source": "src/plugin-skills/bulk-skill-point-allocation.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.dispatch9C",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x12E2C0",
+      "length": 32,
+      "expectedBytes": "40 53 48 81 EC 50 01 00 00 48 8B 05 F8 CF 89 02 48 33 C4 48 89 84 24 40 01 00 00 48 8B D9 33 D2",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.dispatch9D",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x12E490",
+      "length": 32,
+      "expectedBytes": "40 53 48 81 EC 60 01 00 00 48 8B 05 28 CE 89 02 48 33 C4 48 89 84 24 50 01 00 00 48 8B D9 33 D2",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.decodeItem",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x374BF0",
+      "length": 14,
+      "expectedBytes": "40 55 53 41 55 41 57 48 8B EC 48 83 EC 68",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.readItemMetadata",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x374FF0",
+      "length": 27,
+      "expectedBytes": "48 83 EC 38 48 8B 44 24 60 C7 44 24 28 69 00 00 00 48 89 44 24 20 E8 05 00 00 00",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.serializeItem",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x375EE0",
+      "length": 26,
+      "expectedBytes": "48 89 5C 24 08 57 48 83 EC 60 48 8B D9 41 8B F9 48 8D 4C 24 38 E8 26 57 6A 00",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.queueServerPacket",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x4817F0",
+      "length": 22,
+      "expectedBytes": "40 55 56 57 48 83 EC 40 49 8B E8 48 8B F2 48 8B F9 48 85 C9 75 1F",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.resolveHoveredUnit",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x2A7810",
+      "length": 32,
+      "expectedBytes": "48 83 EC 28 44 8B 81 C4 05 00 00 41 83 F8 FF 75 10 83 B9 C8 05 00 00 06 75 07 33 C0 48 83 C4 28",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.resolveHoveredWidget",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x2A89C0",
+      "length": 32,
+      "expectedBytes": "40 57 41 56 48 83 EC 28 48 89 5C 24 40 4C 8B F2 48 89 74 24 20 48 8B D9 33 FF 48 C7 44 24 50 FF",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.getStatsDescription",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x2DC4B0",
+      "length": 32,
+      "expectedBytes": "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C0 FB FF FF 48 81 EC 40 05 00 00 48",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.buildItemTooltip",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x2BD480",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 F8 B1 FF FF B8 08 4F 00 00 E8 41 3C 01 01 48",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.extendedItemStats.queueTextLayout",
+      "owner": "plugin-items",
+      "feature": "items.extendedItemStats",
+      "kind": "inline-hook",
+      "rva": "0x880160",
+      "length": 32,
+      "expectedBytes": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 4C 8D B1 68 01 00",
+      "source": "src/plugin-items/extended-item-stats.cpp"
+    },
+    {
+      "id": "items.qtyDisplayIssue.quantitySuppressionBranch",
+      "owner": "plugin-items",
+      "feature": "items.qtyDisplayIssue",
+      "kind": "byte-patch",
+      "rva": "0x2BE103",
+      "length": 33,
+      "expectedBytes": "BA 00 08 00 00 41 B8 2F 07 00 00 48 8B CB E8 BA 01 0B 00 85 C0 75 0F 4C 8B C7 48 8D 55 D0 48 8B CB",
+      "source": "src/plugin-items/qty-display-issue.cpp"
+    },
+    {
+      "id": "quests.larzukSockets.addSockets",
+      "owner": "plugin-quests",
+      "feature": "quests.larzukSockets",
+      "kind": "inline-hook",
+      "rva": "0x375560",
+      "length": 24,
+      "expectedBytes": "40 57 41 56 48 83 EC 28 44 8B F2 48 8B F9 48 85 C9 74 0A E8 58 64 FD FF",
+      "source": "src/plugin-quests/larzuk-sockets.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call0FA33D",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x0FA33D",
+      "length": 5,
+      "expectedBytes": "E8 6E C2 28 00",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call15A25C",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x15A25C",
+      "length": 5,
+      "expectedBytes": "E8 4F C3 22 00",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call15E760",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x15E760",
+      "length": 5,
+      "expectedBytes": "E8 4B 7E 22 00",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call15F94F",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x15F94F",
+      "length": 5,
+      "expectedBytes": "E8 5C 6C 22 00",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call2C7306",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x2C7306",
+      "length": 5,
+      "expectedBytes": "E8 A5 F2 0B 00",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call38CC86",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x38CC86",
+      "length": 5,
+      "expectedBytes": "E8 25 99 FF FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call40FFCB",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x40FFCB",
+      "length": 5,
+      "expectedBytes": "E8 E0 65 F7 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call417356",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x417356",
+      "length": 5,
+      "expectedBytes": "E8 55 F2 F6 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call42AB9F",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x42AB9F",
+      "length": 5,
+      "expectedBytes": "E8 0C BA F5 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call471D62",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x471D62",
+      "length": 5,
+      "expectedBytes": "E8 49 48 F1 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4A90C7",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4A90C7",
+      "length": 5,
+      "expectedBytes": "E8 E4 D4 ED FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4AB3B5",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4AB3B5",
+      "length": 5,
+      "expectedBytes": "E8 F6 B1 ED FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4AD94B",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4AD94B",
+      "length": 5,
+      "expectedBytes": "E8 60 8C ED FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4B4B5C",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4B4B5C",
+      "length": 5,
+      "expectedBytes": "E8 4F 1A ED FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4B88ED",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4B88ED",
+      "length": 5,
+      "expectedBytes": "E8 BE DC EC FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4BBA73",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4BBA73",
+      "length": 5,
+      "expectedBytes": "E8 38 AB EC FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4C21D6",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4C21D6",
+      "length": 5,
+      "expectedBytes": "E8 D5 43 EC FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4C4181",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4C4181",
+      "length": 5,
+      "expectedBytes": "E8 2A 24 EC FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4C78D2",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4C78D2",
+      "length": 5,
+      "expectedBytes": "E8 D9 EC EB FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4F2C8B",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4F2C8B",
+      "length": 5,
+      "expectedBytes": "E8 20 39 E9 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4FBC0E",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4FBC0E",
+      "length": 5,
+      "expectedBytes": "E8 9D A9 E8 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call4FC395",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x4FC395",
+      "length": 5,
+      "expectedBytes": "E8 16 A2 E8 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call527DC2",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x527DC2",
+      "length": 5,
+      "expectedBytes": "E8 E9 E7 E5 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call528053",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x528053",
+      "length": 5,
+      "expectedBytes": "E8 58 E5 E5 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call541230",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x541230",
+      "length": 5,
+      "expectedBytes": "E8 7B 53 E4 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call54128F",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x54128F",
+      "length": 5,
+      "expectedBytes": "E8 1C 53 E4 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.cubeQuickMoveBottomRight.call541DA7",
+      "owner": "plugin-misc",
+      "feature": "misc.cubeQuickMoveBottomRight",
+      "kind": "call-site",
+      "rva": "0x541DA7",
+      "length": 5,
+      "expectedBytes": "E8 04 48 E4 FF",
+      "source": "src/plugin-misc/cube-quick-move.cpp"
+    },
+    {
+      "id": "misc.equippedItemToCube.queuePacket",
+      "owner": "plugin-misc",
+      "feature": "misc.equippedItemToCube",
+      "kind": "inline-hook",
+      "rva": "0x0EE2A0",
+      "length": 32,
+      "expectedBytes": "48 89 5C 24 18 55 56 57 48 81 EC 30 02 00 00 48 8B 05 12 D0 8D 02 48 33 C4 48 89 84 24 20 02 00",
+      "source": "src/plugin-misc/equipped-item-to-cube.cpp"
+    },
+    {
+      "id": "misc.equippedItemToCube.equippedClick",
+      "owner": "plugin-misc",
+      "feature": "misc.equippedItemToCube",
+      "kind": "inline-hook",
+      "rva": "0x2CACF0",
+      "length": 32,
+      "expectedBytes": "48 89 54 24 10 53 55 57 41 55 48 83 EC 78 48 8B D9 E8 0A CB FD FF 41 B8 1A 01 00 00 48 8D 15 4D",
+      "source": "src/plugin-misc/equipped-item-to-cube.cpp"
+    },
+    {
+      "id": "misc.transmuteHotkey.integratedCubeUpdate",
+      "owner": "plugin-misc",
+      "feature": "misc.transmuteHotkey",
+      "kind": "inline-hook",
+      "rva": "0x23ECD0",
+      "length": 32,
+      "expectedBytes": "40 57 48 83 EC 30 48 8B F9 48 8B 89 A0 02 00 00 48 85 C9 0F 84 A2 01 00 00 48 89 5C 24 48 48 8D",
+      "source": "src/plugin-misc/transmute-hotkey.cpp"
+    },
+    {
+      "id": "misc.transmuteHotkey.standaloneCubeUpdate",
+      "owner": "plugin-misc",
+      "feature": "misc.transmuteHotkey",
+      "kind": "inline-hook",
+      "rva": "0x2CDA90",
+      "length": 32,
+      "expectedBytes": "40 57 48 83 EC 20 80 3D 97 C6 7C 02 00 48 8B F9 48 89 5C 24 30 48 89 74 24 40 74 0E B2 01 C6 05",
+      "source": "src/plugin-misc/transmute-hotkey.cpp"
+    },
+    {
+      "id": "items.vendorStockRefresh.configureVendorPanel",
+      "owner": "plugin-items",
+      "feature": "items.vendorStockRefresh",
+      "kind": "inline-hook",
+      "rva": "0x2411E0",
+      "length": 36,
+      "expectedBytes": "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8D AC 24 E0 FD FF FF 48 81 EC 20 03 00 00 48 8B 05 C2 A0",
+      "source": "src/plugin-items/vendor-stock-refresh.cpp"
+    },
+    {
+      "id": "items.vendorStockRefresh.configureVendorInteraction",
+      "owner": "plugin-items",
+      "feature": "items.vendorStockRefresh",
+      "kind": "inline-hook",
+      "rva": "0x502F60",
+      "length": 32,
+      "expectedBytes": "40 56 57 41 57 48 83 EC 20 48 89 6C 24 48 41 0F B6 F1 4C 89 74 24 50 49 8B E8 4C 8B F1 4C 8B FA",
+      "source": "src/plugin-items/vendor-stock-refresh.cpp"
+    },
+    {
+      "id": "items.vendorStockRefresh.entityAction",
+      "owner": "plugin-items",
+      "feature": "items.vendorStockRefresh",
+      "kind": "inline-hook",
+      "rva": "0x4B0470",
+      "length": 21,
+      "expectedBytes": "40 55 53 56 57 41 54 41 55 48 8D 6C 24 D1 48 81 EC C8 00 00 00",
+      "source": "src/plugin-items/vendor-stock-refresh.cpp"
+    },
+    {
+      "id": "items.vendorStockRefresh.sendVendorRefresh",
+      "owner": "plugin-items",
+      "feature": "items.vendorStockRefresh",
+      "kind": "inline-hook",
+      "rva": "0x10F520",
+      "length": 19,
+      "expectedBytes": "44 8B 05 35 92 93 02 BA 02 00 00 00 B1 38 E9 FD D1 FD FF",
+      "source": "src/plugin-items/vendor-stock-refresh.cpp"
+    },
+    {
+      "id": "misc.preventMercDeathInTown.applyMonsterStatRegen",
+      "owner": "plugin-misc",
+      "feature": "misc.preventMercDeathInTown",
+      "kind": "inline-hook",
+      "rva": "0x448C00",
+      "length": 32,
+      "expectedBytes": "40 53 55 57 48 81 EC 90 00 00 00 48 8B 05 B6 26 58 02 48 33 C4 48 89 44 24 70 48 8B FA 45 33 C0",
+      "source": "src/plugin-misc/prevent-merc-death-in-town.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall2291DC",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x2291DC",
+      "length": 5,
+      "expectedBytes": "E8 9F 42 09 00",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall2BCEE9",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x2BCEE9",
+      "length": 5,
+      "expectedBytes": "E8 92 05 00 00",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall2C8C02",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x2C8C02",
+      "length": 5,
+      "expectedBytes": "E8 79 48 FF FF",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall2CB32E",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x2CB32E",
+      "length": 5,
+      "expectedBytes": "E8 4D 21 FF FF",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall2CE716",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x2CE716",
+      "length": 5,
+      "expectedBytes": "E8 65 ED FE FF",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall87E882",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x87E882",
+      "length": 5,
+      "expectedBytes": "E8 F9 EB A3 FF",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.advancedTooltips.buildItemTooltipCall150C377",
+      "owner": "plugin-items",
+      "feature": "items.advancedTooltips",
+      "kind": "call-site",
+      "rva": "0x150C377",
+      "length": 5,
+      "expectedBytes": "E8 04 11 DB FE",
+      "source": "src/plugin-items/advanced-item-tooltips.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.getFreeBeltSlot",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "inline-hook",
+      "rva": "0x3862D0",
+      "length": 32,
+      "expectedBytes": "40 53 55 56 57 41 54 41 56 41 57 48 81 EC 70 01 00 00 48 8B 05 DF 4F 64 02 48 33 C4 48 89 84 24",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action01",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A798",
+      "length": 8,
+      "expectedBytes": "50 C0 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action02",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7A0",
+      "length": 8,
+      "expectedBytes": "20 CE 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action03",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7A8",
+      "length": 8,
+      "expectedBytes": "40 CE 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action04",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7B0",
+      "length": 8,
+      "expectedBytes": "60 CE 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action05",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7B8",
+      "length": 8,
+      "expectedBytes": "80 CE 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action06",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7C0",
+      "length": 8,
+      "expectedBytes": "80 CF 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action07",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7C8",
+      "length": 8,
+      "expectedBytes": "30 D0 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action08",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7D0",
+      "length": 8,
+      "expectedBytes": "E0 D0 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action09",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7D8",
+      "length": 8,
+      "expectedBytes": "00 D1 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0A",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7E0",
+      "length": 8,
+      "expectedBytes": "20 D1 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0B",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7E8",
+      "length": 8,
+      "expectedBytes": "40 D1 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0C",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7F0",
+      "length": 8,
+      "expectedBytes": "30 D2 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0D",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A7F8",
+      "length": 8,
+      "expectedBytes": "30 D3 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0E",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A800",
+      "length": 8,
+      "expectedBytes": "E0 D3 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action0F",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A808",
+      "length": 8,
+      "expectedBytes": "90 D4 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action10",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A810",
+      "length": 8,
+      "expectedBytes": "B0 D4 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action11",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A818",
+      "length": 8,
+      "expectedBytes": "D0 D4 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "items.potionAutoPickUp.action12",
+      "owner": "plugin-items",
+      "feature": "items.potionAutoPickUp",
+      "kind": "byte-patch",
+      "rva": "0x1D2A820",
+      "length": 8,
+      "expectedBytes": "F0 D4 4A 40 01 00 00 00",
+      "source": "src/plugin-items/potion-auto-pickup.cpp"
+    },
+    {
+      "id": "misc.remoteStash.buttonDispatchCall",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x8F1069",
+      "length": 5,
+      "expectedBytes": "E8 22 2D F5 FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.stashTransitionCall",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x0C1F01",
+      "length": 5,
+      "expectedBytes": "E8 7A DC 05 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.movementUiCloseCall",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x102590",
+      "length": 5,
+      "expectedBytes": "E8 AB 5C FC FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.sharedGoldDepositCall",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x14F5895",
+      "length": 5,
+      "expectedBytes": "E8 96 FA FF FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.townCheck.clientLifecycle",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x259132",
+      "length": 5,
+      "expectedBytes": "E8 19 76 09 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.townCheck.clientCleanup",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x25A11D",
+      "length": 5,
+      "expectedBytes": "E8 2E 66 09 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.townCheck.quickMoveInit",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x0FEE36",
+      "length": 5,
+      "expectedBytes": "E8 15 19 1F 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.townCheck.quickMovePlacement",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x0FF1D7",
+      "length": 5,
+      "expectedBytes": "E8 74 15 1F 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.15E382",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x15E382",
+      "length": 5,
+      "expectedBytes": "E8 29 15 00 00",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.1F6674",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x1F6674",
+      "length": 5,
+      "expectedBytes": "E8 37 92 F6 FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2A9D68",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2A9D68",
+      "length": 5,
+      "expectedBytes": "E8 43 5B EB FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2AAB0D",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2AAB0D",
+      "length": 5,
+      "expectedBytes": "E8 9E 4D EB FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2ABB09",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2ABB09",
+      "length": 5,
+      "expectedBytes": "E8 A2 3D EB FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2C6055",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2C6055",
+      "length": 5,
+      "expectedBytes": "E8 56 98 E9 FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2C6265",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2C6265",
+      "length": 5,
+      "expectedBytes": "E8 46 96 E9 FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.transferItem.2C7479",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "call-site",
+      "rva": "0x2C7479",
+      "length": 5,
+      "expectedBytes": "E8 32 84 E9 FF",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.goldRangeGate",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4BA617",
+      "length": 15,
+      "expectedBytes": "44 39 7D BF 0F 86 39 0E 00 00 48 85 FF 75 7B",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.configurePlayerInventory",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x22BA70",
+      "length": 32,
+      "expectedBytes": "4C 8B DC 49 89 5B 20 55 56 57 41 55 41 56 48 8D 6C 24 90 48 81 EC 70 01 00 00 48 8B 05 37 F8 79",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.getUiState",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x0CE500",
+      "length": 15,
+      "expectedBytes": "48 63 C1 48 8D 0D 96 C8 95 02 0F B6 04 08 C3",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.closeInterfaceState",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x0C7D30",
+      "length": 64,
+      "expectedBytes": "48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D AC 24 E0 FD FF FF 48 81 EC 20 03 00 00 48 8B 05 70 35 90 02 48 33 C4 48 89 85 10 02 00 00 48 63 D9 4C 8D 25 94 82 F3 FF 0F B6 F2 46",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.openInterfaceState",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x0CD7C0",
+      "length": 68,
+      "expectedBytes": "48 89 5C 24 18 55 56 41 54 41 56 41 57 48 8D AC 24 40 FD FF FF 48 81 EC C0 03 00 00 48 8B 05 E5 DA 8F 02 48 33 C4 48 89 85 B0 02 00 00 48 63 D9 4C 8D 25 09 28 F3 FF 44 0F B6 F2 45 0F B6 BC 1C A0 AD A2 02",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.resetMouseInputFinalize",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x08D540",
+      "length": 32,
+      "expectedBytes": "8B 0D BE 61 99 02 33 C0 89 05 06 5F 99 02 89 05 24 5F 99 02 88 05 90 61 99 02 89 05 20 5F 99 02",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.resetMouseInput",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x08D510",
+      "length": 32,
+      "expectedBytes": "33 C0 89 05 3C 5F 99 02 89 05 5A 5F 99 02 88 05 C6 61 99 02 89 05 56 5F 99 02 89 05 54 5F 99 02",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.goldButtonHandler",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4BA580",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 57 48 8D 6C 24 C9 48 81 EC 00 01 00 00 48 8B 05 2E 0D 51 02 48 33 C4 48 89 45",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.removeServerUnit",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x43EC10",
+      "length": 16,
+      "expectedBytes": "48 89 5C 24 08 57 48 83 EC 20 48 8B F9 48 8B DA",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.removeItemHandler",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4AA100",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 56 48 8D 6C 24 F0 48 81 EC 10 01 00 00 48 8B 05 AE 11 52 02 48 33 C4 48 89 45",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.validateItemPacketState",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x474700",
+      "length": 32,
+      "expectedBytes": "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B D9 41 0F B6 F0 48 8B 09 48 8B FA E8 AF 72 ED",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.sharedDepositHandler",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4C5570",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 55 48 8D 6C 24 C9 48 81 EC F0 00 00 00 48 8B 05 3E 5D 50 02 48 33 C4 48 89 45",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.sharedWithdrawalHandler",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4C6480",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 55 48 8D 6C 24 C9 48 81 EC F0 00 00 00 48 8B 05 2E 4E 50 02 48 33 C4 48 89 45",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.remoteStash.insertItemHandler",
+      "owner": "plugin-misc",
+      "feature": "misc.remoteStash",
+      "kind": "inline-hook",
+      "rva": "0x4BFF30",
+      "length": 32,
+      "expectedBytes": "40 55 53 56 57 41 56 48 8D 6C 24 F0 48 81 EC 10 01 00 00 48 8B 05 7E B3 50 02 48 33 C4 48 89 45",
+      "source": "src/plugin-misc/remote-stash.cpp"
+    },
+    {
+      "id": "misc.floatingDamage.updateCamera",
+      "owner": "plugin-misc",
+      "feature": "misc.floatingDamage",
+      "kind": "inline-hook",
+      "rva": "0x0B9B90",
+      "length": 33,
+      "expectedBytes": "48 89 5C 24 18 57 48 83 EC 20 E8 31 17 FD FF 8B C8 E8 DA 08 FE FF 48 8B C8 48 8B D8 E8 AF 13 29 00",
+      "source": "src/plugin-misc/floating-damage-feature.cpp"
+    },
+    {
+      "id": "misc.floatingDamage.hitpointsCommitCall",
+      "owner": "plugin-misc",
+      "feature": "misc.floatingDamage",
+      "kind": "call-site",
+      "rva": "0x44D093",
+      "length": 5,
+      "expectedBytes": "E8 78 AC EA FF",
+      "source": "src/plugin-misc/floating-damage-feature.cpp"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build -A x64 -DBUILD_TESTING=ON
+
+      - name: Build Debug
+        run: cmake --build build --config Debug --parallel 2
+
+      - name: Test Debug
+        run: ctest --test-dir build -C Debug --output-on-failure
+
+      - name: Build Release
+        run: cmake --build build --config Release --parallel 2
+
+      - name: Test Release
+        run: ctest --test-dir build -C Release --output-on-failure

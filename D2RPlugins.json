@@ -1,0 +1,485 @@
+{
+    // ── Items ─────────────────────────────────────────────────────────────────
+    "items": {
+        // Spawn magic/rare items pre-identified.
+        "magicItemsSpawnIdentified": false,
+        "rareItemsSpawnIdentified": false,
+
+        // Use vanilla diminishing returns or linear positive Magic Find for
+        // Unique, Set, and Rare quality rolls. Magic quality is already linear.
+        "magicFindFormula": {
+            "mode": "vanilla"
+        },
+
+        // Reduce durability loss, change ethereal maximum durability, or give
+        // bows and crossbows durability. Disabled values preserve vanilla behavior.
+        "itemDurability": {
+            "enabled": false,
+            "normalResistancePercent": 0,
+            "etherealResistancePercent": 0,
+            // Ethereal maximum durability as a percentage of the normal item's maximum.
+            "etherealMaximumPercent": 50,
+            // Force ethereal items to 255 maximum durability, ignoring the percentage above.
+            "forceMaximumDurability": false,
+            "bowsAndCrossbowsHaveDurability": false
+        },
+
+        // Restore inventory charm auras after changing areas, recovering a corpse,
+        // or respawning in town.
+        "charmAuraTriggerFix": {
+            "enabled": true
+        },
+
+        // Limit repair prices and optionally make repaired items permanently lose
+        // maximum durability. Disabled values preserve vanilla behavior.
+        "repairCostsCap": {
+            "enabled": false,
+            "maximumGold": 2147483647,
+            "durabilityWear": {
+                "enabled": false,
+                "chance": 0.0
+            }
+        },
+
+        // Remove the gold-penalty formula that reduces gold picked up at high levels.
+        "disableGoldPenalty": false,
+
+        // Raise the inventory gold cap beyond the vanilla per-level formula.
+        // mode: "disabled" | "perLevel" | "flat"
+        // value: cap to use when mode is "flat", or additive bonus when "perLevel".
+        "inventoryGoldLimit": {
+            "mode": "disabled",
+            "value": 10000
+        },
+
+        // Allow runewords to be created in non-normal-quality items.
+        // Each key enables that quality: magic / set / rare / unique / crafted / tempered.
+        "runewordQualities": {
+            "magic":    false,
+            "set":      false,
+            "rare":     false,
+            "unique":   false,
+            "crafted":  false,
+            "tempered": false
+        },
+
+        // Control which items appear on the gambling screen.
+        // mode: "disabled" | "noRingAmuletGuarantee" | "bitfield"
+        //   noRingAmuletGuarantee – removes the forced ring/amulet in the first two slots.
+        //   bitfield              – only show items whose dwBitField1 & bitfield != 0.
+        "gambleFilter": {
+            "mode": "disabled",
+            "bitfield": 4
+        },
+
+        // Fill all 32 gambling slots instead of the vanilla 14.
+        "gambleScreenLimit": {
+            "enabled": false
+        },
+
+        // Show up to 64 or 128 ground-item labels at the same time instead of 32.
+        "groundItemLabels": {
+            "enabled": false,
+            "limit": 64
+        },
+
+        // Fix off-weapon Enhanced Damage when flat minimum or maximum damage is present.
+        "enhancedDamageMinMaxFix": {
+            "enabled": true
+        },
+
+        // Show item quantity on socketed stackable items.
+        "qtyDisplayIssue": {
+            "enabled": true
+        },
+
+        // Vendor overhaul: replaces the vanilla random-item generator for shops.
+        "vendorOverhaul": {
+            "enabled": false,
+
+            // Item level below which vendor items spawn as Normal quality.
+            "normalItemLevelMaxThreshold": 25,
+            // Item level at or above which vendor items can spawn as Magic.
+            "magicMinLevelThreshold": 0,
+            // Item level at or above which vendor items can spawn as Superior.
+            "superiorMinLevelThreshold": 5,
+            // Item level below which vendor items can spawn as Low Quality.
+            "lowQualityMaxLevelThreshold": 5,
+
+            // Percentage chance (0–100) for an eligible item to be upgraded to Superior.
+            "superiorUpgradeChance": 25,
+            // Percentage chance (0–100) for an eligible item to be downgraded to Low Quality.
+            "lowQualityDowngradeChance": 10,
+
+            // Allow vendors to occasionally sell Rare items.
+            "randomRareItems": false,
+            // Denominator for the rare-item chance (1-in-N per slot). Default 1024.
+            "rareItemChance": 1024,
+
+            // Vendor difficulty upgrade thresholds.
+            // These control how aggressively vendors sell exceptional/elite items.
+            // A value of 0 disables the override and keeps vanilla behaviour.
+            //   NightmareBaseChance / HellUberBaseChance / HellBaseChance:
+            //     Added to (player_level << levelScale) to get the upgrade roll threshold.
+            //   *LevelScale: the SHL shift count (power-of-2 multiplier on player level).
+            "nightmareBaseChance":  4000,  // vanilla: 4000
+            "hellUberBaseChance":   5000,  // vanilla: 5000
+            "hellBaseChance":       1000,  // vanilla: 1000
+            "nightmareLevelScale":  64,    // vanilla: 64  (SHL 6)
+            "hellUberLevelScale":   128,   // vanilla: 128 (SHL 7)
+            "hellLevelScale":       16     // vanilla: 16  (SHL 4)
+        },
+
+        // Add a manual refresh button for normal vendor stock.
+        "vendorStockRefresh": {
+            "enabled": false
+        },
+
+        // Use the attacking player unit (instead of the monster) when evaluating
+        // ConditionCalc expressions in Treasure Class records.
+        "playerConditionCalc": false,
+
+        // Override the maximum physical resistance cap (vanilla: 50%).
+        "physResistCap": {
+            "enabled": false,
+            "max": 50
+        },
+
+        // Override the maximum elemental resistance cap (vanilla: 95%).
+        "elementalResistCap": {
+            "enabled": false,
+            "max": 95
+        },
+
+        // Override the maximum absorb percentage cap (vanilla: 40%).
+        "absorbCap": {
+            "enabled": false,
+            "max": 40
+        },
+
+        // Control every ethereal item rule from one block.
+        // Excluded codes use the Code column from itemtypes.txt; parent types include descendants.
+        // These shipped values preserve vanilla behavior.
+        "etherealItemRules": {
+            "enabled": false,
+            "excludedItemTypes": [],
+            "chancePercent": 5,
+            "allowSetItems": false,
+            "allowIndestructibleItems": false
+        },
+
+        // Show maximum sockets and exact item roll ranges.
+        // Disabled by default; when enabled, hold Shift to display ranges.
+        "advancedTooltips": {
+            "enabled": false,
+            "showMaxSockets": true,
+            "showMaxSocketsOnSocketedItems": false,
+            "showBaseDefenseRange": true,
+            "showPropertyRanges": true,
+            "includeSocketedContributionsInRanges": false,
+            "propertyRangeColor": "ChronicleColor",
+            "rangeDisplayMode": "HoldHotkey",
+            "holdToDisplayHotkey": "Shift"
+        },
+
+        // Automatically pick up only the potion codes explicitly listed below.
+        // Lists contain quoted item codes: hp1-hp5, mp1-mp5, rvs, or rvl.
+        // Inactive example: "tiers": ["hp5"]. Columns are integers from 1 to 4.
+        // If no valid belt or inventory space remains, the item stays on the ground.
+        "potionAutoPickUp": {
+            "enabled": false,
+            "pickupDistance": 4,
+            "minimumIntervalActions": 3,
+            "familyPriority": [],
+            "healing": {
+                "enabled": false,
+                "tiers": [],
+                "columns": [],
+                "overflowToInventory": false,
+                "overflowTiers": [],
+                "tierPriority": []
+            },
+            "mana": {
+                "enabled": false,
+                "tiers": [],
+                "columns": [],
+                "overflowToInventory": false,
+                "overflowTiers": [],
+                "tierPriority": []
+            },
+            "rejuvenation": {
+                "enabled": false,
+                "tiers": [],
+                "columns": [],
+                "overflowToInventory": false,
+                "overflowTiers": [],
+                "tierPriority": []
+            },
+            "diagnostics": {
+                "enabled": false,
+                "logScans": false
+            }
+        }
+    },
+
+    // ── Skills ────────────────────────────────────────────────────────────────
+    "skills": {
+        // Read the "ManaCostsLife" / "ManaCostsStamina" columns from skills.txt
+        // and route mana costs to HP or stamina instead.
+        "manaCostsLife":    false,
+        "manaCostsStamina": false,
+
+        // Restore classic Whirlwind behaviour: no cooldown between individual hits.
+        "classicWhirlwind": false,
+
+        // Allow Whirlwind to trigger Chance-to-Cast modifiers on gear.
+        "whirlwindCtC": false,
+
+        // Telekinesis picks up any item (not just gold and scrolls).
+        "telekinesisPicksUpEverything": false,
+
+        // Hold Ctrl to spend several skill points at once or Shift to spend all usable points.
+        "bulkSkillPointAllocation": {
+            "enabled": false,
+            "skillPointsPerCtrlClick": 5,
+            "confirmShiftAllocation": false,
+            "shiftConfirmationKey": "shiftConfirmation",
+            "shiftConfirmationFallback": "Invest all currently usable skill points in this skill?"
+        },
+
+        // Give charged items a % chance to not consume a charge on use.
+        // statId is the character stat (0–511) that holds the skip-chance (0–100%).
+        "chargedPctDrainStat": {
+            "enabled": false,
+            "statId": 0
+        },
+
+        // Adds additional properties to srvdofunc 169:
+        // par1 set to 0 (default) will heal TO a percentage. par1 set to 1 will heal BY a percentage.
+        // par2 set to 0 (default) will heal life. par2 set to 1 will heal mana.
+        "selfHealParams": true
+    },
+
+    // ── Levels ────────────────────────────────────────────────────────────────
+    "levels": {
+        // Remove the dirt-path overlay that covers the Blood Moor in Act 1.
+        "disableAct1Path": false
+    },
+
+    // ── Misc ──────────────────────────────────────────────────────────────────
+    "misc": {
+        // Maximum value accepted by the /players command (vanilla cap: 8).
+        // Values above 8 install hooks to bypass the engine clamp.
+        "playersCommandLimit": 8,
+
+            // Cap the effective player count used when computing each monster's
+            // /players bonus to monster max HP / experience. 0 disables the cap
+            // (vanilla behaviour: scales with the real /players value, up to 8).
+            // Set to 1 to remove that stat's /players scaling entirely. The two
+            // caps are independent of each other and of the real /players value.
+            "monsterHpPlayerCountCap": 0,
+            "monsterExperiencePlayerCountCap": 0,
+
+        // Place quick-moved Cube items into free slots starting at the bottom-right.
+        "cubeQuickMoveBottomRight": {
+            "enabled": false
+        },
+
+        // Ctrl-click equipped gear to move it directly into an open Horadric Cube.
+        "equippedItemToCube": {
+            "enabled": true
+        },
+
+        // Press a keyboard or mouse shortcut to activate the Cube Transmute button.
+        // Supports A-Z, 0-9, F1-F24, common navigation keys, and MOUSE3-MOUSE5.
+        // CTRL, SHIFT, and ALT are optional.
+        "transmuteHotkey": {
+            "enabled": false,
+            "hotkey": "CTRL+SHIFT+T"
+        },
+
+        // Prevent ongoing damage from killing your mercenary while in town.
+        "preventMercDeathInTown": {
+            "enabled": false
+        },
+
+        // Open the native personal, shared, and crafting stash remotely.
+        // "None" leaves the optional hotkey unbound by default.
+        "remoteStash": {
+            "enabled": false,
+            "hotkey": "None"
+        },
+
+        // Show visual-only combat numbers and a rolling DPS counter.
+        "floatingDamage": {
+            "enabled": false,
+            "toggleHotkeyEnabled": true,
+            "toggleHotkey": "SHIFT+Z",
+            "maxNumbersOnScreen": 160,
+            "fontIndex": 0,
+            "colorByDamageType": false,
+            "textSize": 38.0,
+            "criticalHitSize": 48.0,
+            "textOutlineWidth": 1,
+            "shadowLeftRightOffset": 0.0,
+            "shadowUpDownOffset": 0.0,
+            "displayTimeSeconds": 0.85,
+            "criticalDisplayTimeSeconds": 0.95,
+            "fadeOutStart": 0.75,
+            "spawnSize": 0.01,
+            "popBounceSize": 1.75,
+            "popInTimeSeconds": 0.08,
+            "settleTimeSeconds": 0.12,
+            "upwardDriftSpeed": 45.0,
+            "sidewaysSpread": 0.0,
+            "spawnHeightOffset": 0.0,
+            "enableHitCombining": true,
+            "maxCombinedHitSize": 999999,
+            "combineWindowMs": 500,
+            "extendDisplayOnHitSeconds": 0.52,
+            "hitPulseSize": 1.24,
+            "hitPulseTimeSeconds": 0.13,
+            "showTickPopups": true,
+            "tickPopupTimeSeconds": 0.70,
+            "tickPopupSize": 0.60,
+            "tickPopupTravel": 64.0,
+            "tickPopupHeightOffset": -28.0,
+            "spreadNumbersHorizontally": true,
+            "numberOfColumns": 7,
+            "columnSpacing": 40.0,
+            "stackHeightStep": 24.0,
+            "columnReuseTimeSeconds": 0.60,
+            "maxStackHeight": 96.0,
+            "showDpsCounter": true,
+            "horizontalPositionPercent": 2.0,
+            "verticalPositionPercent": 98.0,
+            "dpsSampleTimeSeconds": 5.0,
+            "previewNumberCount": 8,
+            "previewSpread": 32.0,
+            "colors": {
+                "normal": [0.92, 0.92, 0.88, 1.0],
+                "critical": [1.0, 0.84, 0.27, 1.0],
+                "physical": [0.92, 0.92, 0.88, 1.0],
+                "fire": [1.0, 0.45, 0.12, 1.0],
+                "lightning": [1.0, 0.95, 0.35, 1.0],
+                "cold": [0.45, 0.78, 1.0, 1.0],
+                "poison": [0.35, 0.90, 0.30, 1.0],
+                "magic": [0.72, 0.45, 1.0, 1.0],
+                "outline": [0.16, 0.11, 0.03, 1.0],
+                "shadow": [0.16, 0.11, 0.02, 1.0]
+            }
+        }
+    },
+
+    // ── Quests ────────────────────────────────────────────────────────────────
+    "quests": {
+        // Den of Evil (Act 1) – extra skill point reward.
+        // mode: "disabled" | "same" | "different"
+        //   same      – all difficulties give the same reward.
+        //   different – per-difficulty rewards via the perDifficulty array.
+        "denOfEvil": {
+            "mode": "disabled",
+            "skillPoints": 1
+        },
+
+        // Izual (Act 4) – extra skill point reward.
+        "izual": {
+            "mode": "disabled",
+            "skillPoints": 2
+        },
+
+        // The Black Book (Act 2) – extra stat point reward.
+        "blackBook": {
+            "mode": "disabled",
+            "statPoints": 5
+        },
+
+        // The Golden Bird (Act 3) – bonus to a character stat.
+        // stat: stat ID to modify. amount: value added (HP/MP are in 256ths).
+        "goldenBird": {
+            "mode": "disabled",
+            "stat": 7,
+            "amount": 5120   // 5120 / 256 = 20 HP
+        },
+
+        // Radament's Lair (Act 2) – skill book reward.
+        // stat: stat ID to modify. amount: how much to add.
+        "radamentSkillBook": {
+            "mode": "disabled",
+            "stat": 5,
+            "amount": 1
+        },
+
+        // Akara / Cain rescue ring reward.
+        // item: 3-character item code (e.g. "rin").
+        // quality: 2=Normal 3=Superior 4=Magic 5=Set 6=Rare 7=Unique 8=Crafted 9=Tempered
+        // perDifficulty: array of [normal, nightmare, hell] overrides when mode is "different".
+        "akaraCainRing": {
+            "mode": "disabled",
+            "item": "rin",
+            "quality": 6,
+            "perDifficulty": [
+                { "item": "rin", "quality": 6 },
+                { "item": "rin", "quality": 6 },
+                { "item": "rin", "quality": 6 }
+            ]
+        },
+
+        // Ormus / Gidbinn ring reward.
+        "ormusGidbinnRing": {
+            "mode": "disabled",
+            "item": "rin",
+            "quality": 6,
+            "perDifficulty": [
+                { "item": "rin", "quality": 6 },
+                { "item": "rin", "quality": 6 },
+                { "item": "rin", "quality": 6 }
+            ]
+        },
+
+        // Qual-Kehk rescue rune rewards (three rune slots).
+        // items: array of 3 item codes for the "same" reward across all difficulties.
+        // perDifficulty: 3-element array (normal / nightmare / hell), each containing
+        //   a 3-element array of item codes for the three rune slots.
+        "qualKehkRunes": {
+            "mode": "disabled",
+            "items": [ "r07", "r08", "r09" ],
+            "perDifficulty": [
+                [ "r07", "r08", "r09" ],   // Normal
+                [ "r07", "r08", "r09" ],   // Nightmare
+                [ "r07", "r08", "r09" ]    // Hell
+            ]
+        },
+
+        // Choose how many sockets Larzuk adds by difficulty and item quality.
+        // Keep disabled for vanilla behavior. Equal values guarantee a fixed reward;
+        // a range rolls between them. Set one quality rule to null to use its vanilla result.
+        "larzukSockets": {
+            "enabled": false,
+            "normal": {
+                "magic": { "minSockets": 1, "maxSockets": 2 },
+                "rare": { "minSockets": 1, "maxSockets": 1 },
+                "set": { "minSockets": 1, "maxSockets": 1 },
+                "unique": { "minSockets": 1, "maxSockets": 1 },
+                "crafted": { "minSockets": 1, "maxSockets": 1 }
+            },
+            "nightmare": {
+                "magic": { "minSockets": 1, "maxSockets": 2 },
+                "rare": { "minSockets": 1, "maxSockets": 1 },
+                "set": { "minSockets": 1, "maxSockets": 1 },
+                "unique": { "minSockets": 1, "maxSockets": 1 },
+                "crafted": { "minSockets": 1, "maxSockets": 1 }
+            },
+            "hell": {
+                "magic": { "minSockets": 1, "maxSockets": 2 },
+                "rare": { "minSockets": 1, "maxSockets": 1 },
+                "set": { "minSockets": 1, "maxSockets": 1 },
+                "unique": { "minSockets": 1, "maxSockets": 1 },
+                "crafted": { "minSockets": 1, "maxSockets": 1 }
+            }
+        },
+
+        // Allow the Imbue quest reward to be used on socketed items.
+        "imbueAllowSockets": false
+    }
+}
