@@ -214,7 +214,7 @@ The packaged `Community-Pack-1.0.0-Windows-x64.zip` contains exactly nine
 files: the five DLLs, central JSON, player README, MIT license, and third-party
 notices. Every file extracted from the archive matches its staged/source
 SHA-256. The archive SHA-256 is
-`EA063516BF5F2A33C9F2A1A34D370713D5AC981BC3BE55E96A36B18A41FD77E3`.
+`F0FD13A9148A2FB65730ED4DC690124814641F7A26F74C0E3145413B6C1D978E`.
 
 ## Review and attribution
 

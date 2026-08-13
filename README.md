@@ -20,9 +20,6 @@ Community Pack 1.0.0 requires:
 - **D2RLoader 1.0.1 or later**;
 - **Diablo II: Resurrected 3.2.92777**.
 
-Unsupported game builds are refused instead of receiving unverified native
-changes.
-
 The installable package contains these five plugins:
 
 - `plugin-items.dll`
@@ -72,20 +69,22 @@ The original PluginPack expected its JSON inside a mod's MPQ/data structure.
 Community Pack does not. Install `D2RPlugins.json` in the `d2rloader/config`
 directory shown above.
 
-## Before updating from standalone plugins
+## Before updating from standalone plugins or patches
 
-Remove every standalone DLL or memory patch that implements one of the 22
-integrated features before starting the game. Loading an old standalone version
-beside its Community Pack owner can make both components target the same game
-behavior.
+Remove every standalone DLLor patch that implements one of the 22
+integrated features before starting the game.
 
-This includes previous releases such as Bulk Skill Point Allocation,
+Standalone plugins to remove include Bulk Skill Point Allocation,
 AdvancedItemTooltips, RemoteStash, MassID, Durability Resistance,
-NoEtherealItemTypes/Ethereal Item Rules, FloatingDamage, Enhanced Damage
-Min/Max Fix, Charm Aura Trigger Fix
+NoEtherealItemTypes, FloatingDamage, Enhanced Damage
+Min/Max Fix, Charm Aura Trigger Fix.
 
-There is no automatic TOML-to-JSON migration. Re-enter the desired values in
-the matching block of the central `D2RPlugins.json` file.
+The only patch that needs removal is Ethereal Item Rules.
+
+Do not rely on disabling the equivalent Community Pack feature to make an old
+standalone DLL safe to load beside the pack. Remove the duplicate DLL and copy
+any settings you want to keep into the matching block of `D2RPlugins.json`.
+
 ## Shipped defaults
 
 No-brainer features are enabled within the provided json config :
@@ -95,9 +94,9 @@ No-brainer features are enabled within the provided json config :
 - Qty Display Fix;
 - Equipped Item to Cube;
 
-Every other
-configurable RuffnecKk integration ships disabled or in its vanilla-preserving
+Every other configurable RuffnecKk integration ships disabled or in its vanilla-preserving
 mode.
+
 ## The 22 integrated RuffnecKk features
 
 ### `plugin-items.dll`
