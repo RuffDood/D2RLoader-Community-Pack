@@ -5,7 +5,7 @@ RuffnecKk features inside the same five-DLL layout and one central
 `D2RPlugins.json` file.
 
 THIS PACK IS NOT SUPPORTED ANYMORE. PLEASE CHECK OUT THIS REPO:
-(**https://github.com/RuffDood/D2RLoader-Community-Pack/releases/latest**)
+(https://github.com/RuffDood/RuffnecKk-D2RLoader-Suite)
 
 ## Download
 
