@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> This repository is archived and no longer supported.
+>
+> The Community Pack has been replaced by the modular [RuffnecKk D2RLoader Suite](https://github.com/RuffDood/RuffnecKk-D2RLoader-Suite), updated for D2RLoader 1.1.0 and PluginSDK v3.
+>
+> Existing Community Pack releases remain available for historical purposes, but should not be mixed with the new Suite.
+
 # D2RLoader Community Pack 1.0.0
 
 Community Pack 1.0.0 combines eezstreet's original PluginPack with 22
