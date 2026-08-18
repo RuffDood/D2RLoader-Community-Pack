@@ -4,7 +4,8 @@ Community Pack 1.0.0 combines eezstreet's original PluginPack with 22
 RuffnecKk features inside the same five-DLL layout and one central
 `D2RPlugins.json` file.
 
-The plan is to maintain and update this ever-expanding community driven plugin pack!
+THIS PACK IS NOT SUPPORTED ANYMORE. PLEASE CHECK OUT THIS REPO:
+(**https://github.com/RuffDood/D2RLoader-Community-Pack/releases/latest**)
 
 ## Download
 
